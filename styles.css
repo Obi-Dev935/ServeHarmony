@@ -1,0 +1,48 @@
+:root {
+    --bg-primary: #F5F5F5;
+    --bg-secondary: #D2B48C;
+    --text-primary: white;
+    --text-secondary: black;
+}
+.cafe , .restaurant{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 5px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.card img {
+    width: 80%;  
+}
+
+.card_body {
+    width: 100%;
+    text-align: center;
+}
+
+@media only screen and (min-width:981px ) {
+    .cafe , .restaurant , .grid {
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+    }
+} 
+
+
+@media only screen and (max-width:980px ) {
+    .cafe , .restaurant , .grid {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media only screen and (max-width:680px ) {
+    .cafe , .restaurant , .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}

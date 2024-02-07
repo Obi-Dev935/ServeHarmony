@@ -1,2 +1,0 @@
-# ServeHarmony
-ServeHarmony
