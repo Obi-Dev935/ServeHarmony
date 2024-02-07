@@ -42,7 +42,7 @@
     align-items: start;
     text-align: left;
     padding: 40px;
-    background-color: white;
+    background-color: var(--text-primary);
     box-shadow: 0 20px 30px rgba(0,0,0,0.4);
     width: 90%;
     max-width: 800px;
@@ -52,7 +52,7 @@
 .title {
     grid-column: 1 / 2;
     place-self: center start;
-    color: #333;
+    color: var(--text-secondary);
 }
 
 .option-list {
