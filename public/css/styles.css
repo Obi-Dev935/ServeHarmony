@@ -4,7 +4,8 @@
     --text-primary: white;
     --text-secondary: black;
 }
-.cafe , .restaurant{
+
+.cafe, .restaurant {
     display: flex;
     flex-direction: column;
     width: 80%;
@@ -17,7 +18,7 @@
 }
 
 .card img {
-    width: 80%;  
+    width: 80%;
 }
 
 .card_body {
@@ -25,23 +26,82 @@
     text-align: center;
 }
 
-@media only screen and (min-width:981px ) {
-    .cafe , .restaurant , .grid {
-        display: grid;
-        grid-template-columns: repeat(3,1fr);
-    }
-} 
+.page-wrapper {
+    background-color: var(--bg-secondary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
+.content-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: start;
+    text-align: left;
+    padding: 40px;
+    background-color: white;
+    box-shadow: 0 20px 30px rgba(0,0,0,0.4);
+    width: 90%;
+    max-width: 800px;
+    border-radius: 10px;
+}
 
-@media only screen and (max-width:980px ) {
-    .cafe , .restaurant , .grid {
+.title {
+    grid-column: 1 / 2;
+    place-self: center start;
+    color: #333;
+}
+
+.option-list {
+    grid-column: 2 / 3;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+}
+
+.option-item {
+    margin: 20px 0;
+}
+
+.option-link {
+    background-color: var(--bg-secondary);
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: 500;
+    padding: 15px 30px;
+    font-size: 16px;
+    border: 2px solid var(--text-primary);
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    width: 100%;
+}
+
+.option-link:hover, .option-link:focus {
+    background-color: var(--text-primary);
+    color: var(--bg-secondary);
+    border: solid 4px var(--bg-secondary);
+}
+
+@media only screen and (min-width: 981px) {
+    .cafe, .restaurant, .grid {
         display: grid;
-        grid-template-columns: repeat(2,1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
-@media only screen and (max-width:680px ) {
-    .cafe , .restaurant , .grid {
+@media only screen and (max-width: 980px) {
+    .cafe, .restaurant, .grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (max-width: 680px) {
+    .cafe, .restaurant, .grid {
         display: grid;
         grid-template-columns: 1fr;
     }
