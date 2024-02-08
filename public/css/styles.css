@@ -13,20 +13,22 @@ html {
     display: flex;
     flex-direction: column;
     width: 80%;
-    margin: 20px auto; /* Suitable margin around cards */
+    margin: 20px auto;
     align-items: center;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-    padding: 20px; /* Increased padding for space inside */
+    padding: 20px;
     border-radius: 10px;
-    background-color: var(--bg-primary); /* White background for each card */
-    border: 2px solid black; /* Black border around each card */
+    background-color: var(--bg-primary);
+    border: 2px solid black;
     transition: transform 0.3s ease-in-out;
 }
+
 .card:hover {
     transform: scale(1.09);
-  }
+}
+
 #Image {
-    width: 200px; /* Corrected to include 'px' */
+    width: 200px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
     border-radius: 10px;
 }
@@ -97,6 +99,61 @@ html {
     border: solid 4px var(--bg-secondary);
 }
 
+.phone-number-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--bg-secondary); /* Use the primary background color for consistency */
+    
+}
+
+.phone-number-page .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    background-color: var(--text-primary);
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 400px; /* Ensures good appearance on desktop */
+    margin: auto; /* Center the container vertically for smaller heights */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.phone-number-page h1 {
+    color: var(--bg-secondary); /* Using the secondary color for the heading */
+    margin-bottom: 2rem;
+}
+
+.phone-number-page label, .phone-number-page input[type="tel"], .phone-number-page button {
+    width: 80%; /* Ensuring label, input, and button have the same width */
+    margin: 10px 0; /* Consistent margin for vertical spacing */
+}
+
+.phone-number-page input[type="tel"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--bg-secondary);
+    background-color: var(--bg-primary);
+    color: var(--text-secondary);
+}
+
+.phone-number-page button {
+    padding: 10px 20px;
+    color: var(--text-primary);
+    background-color: var(--bg-secondary);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.phone-number-page button:hover {
+    background-color: #e8bb82;
+}
+
 @media only screen and (min-width: 1024px) {
     .grid {
         display: grid;
@@ -126,4 +183,8 @@ html {
         margin: 5px;
         font-size: 20px;
     }
+    .phone-number-page .container {
+        width: 80%; /* Slightly wider container for small screens */
+    }
 }
+

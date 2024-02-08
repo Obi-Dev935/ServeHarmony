@@ -14,7 +14,9 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.get('/',(request,response) => {
   response.render('PhonePage')
 });
-
+app.get('/ChoicePage',(request,response) => {
+  response.render('ChoicePage')
+});
 app.get('/restaurantPage',(request,response) => {
   response.render('restaurantPage')
 });
