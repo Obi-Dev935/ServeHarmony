@@ -5,25 +5,34 @@
     --text-secondary: black;
 }
 
+html {
+    background-color: var(--bg-secondary);
+}
 .cafe, .restaurant {
     display: flex;
     flex-direction: column;
     width: 80%;
     margin: auto;
     align-items: center;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
     padding: 5px;
     margin-top: 10px;
     border-radius: 10px;
+    background-color: var(--bg-primary);
+    
+}
+#Image {
+    width: 200;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    
 }
 
-.card img {
+.cafe, .restaurant img {
     width: 80%;
-}
-
-.card_body {
-    width: 100%;
-    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    border-radius: 5px;
+    font-size: 30px;
 }
 
 .page-wrapper {
@@ -86,23 +95,36 @@
     border: solid 4px var(--bg-secondary);
 }
 
-@media only screen and (min-width: 981px) {
+/* Desktops and large screens */
+@media only screen and (min-width: 1024px) {
     .cafe, .restaurant, .grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
-@media only screen and (max-width: 980px) {
+/* Tablets and medium screens */
+@media only screen and (max-width: 1023px) {
     .cafe, .restaurant, .grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
     }
+    p {
+        margin: 5px;
+        font-size: 20px;
+    }
 }
 
-@media only screen and (max-width: 680px) {
+/* Mobile phones and small screens */
+@media only screen and (max-width: 767px) {
     .cafe, .restaurant, .grid {
         display: grid;
         grid-template-columns: 1fr;
+        margin: 5px;
+        padding: 5px;
+    }
+    p {
+        margin: 5px;
+        font-size: 20px;
     }
 }
