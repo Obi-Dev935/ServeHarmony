@@ -29,12 +29,12 @@ html {
 
 #Image {
     width: 200px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 20px rgba(105, 105, 105, 0.8);
     border-radius: 10px;
 }
 
 .cafe img, .restaurant img {
-    width: 80%;
+    /* width: 80%; */
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
     border-radius: 5px;
 }
@@ -161,7 +161,31 @@ html {
     font-size: larger;
 }
 
+.popup{
+    background-color: #ffffff;
+    width: 450px;
+    padding: 30px 40px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+    border-radius: 8px;
+    font-family: "Poppins",sans-serif;
+    display: none;
+    text-align: center;
+}
 
+.popup button{
+    display: block;
+    margin:  0 0 20px auto;
+    background-color: transparent;
+    font-size: 30px;
+    color: #c5c5c5;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+ 
 @media only screen and (min-width: 1024px) {
     .grid {
         display: grid;

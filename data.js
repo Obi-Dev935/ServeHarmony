@@ -14,7 +14,7 @@ const restaurants = [
         location: "River Walk"
     },
     {
-        img: "images/burgermap.png",
+        img: "images/Burgermap.png",
         alt: "Burger Map",
         name: "Burger Map",
         open: "10:00 AM - 12:00 AM",

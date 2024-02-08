@@ -27,13 +27,17 @@ app.get('/cafePage',(request,response) => {
   response.render('cafePage')
 });
 
+app.get('/restaurant/menu',(request,response) => {
+  response.render('menu')
+});
+
 // app.get('/Register/v1/',(request,response) => {
 //     response.render('Register', {title: 'Add products', message: '', error: ''})
 // });
 
 
 app.use((request,response) => { 
-  response.status(404).render('404')
+  response.status(404).send('<h1>Error</h1>')
 });
 
 mongoose.connect(process.env.MONGO_URI)
@@ -50,13 +54,7 @@ mongoose.connect(process.env.MONGO_URI)
   
   
   
-
-
-
-
-
-
-  // app.post('/Register/v1/', (req, res) => {
+// app.post('/Register/v1/', (req, res) => {
 //   const name = req.body.name;
 //   const Lname = req.body.Lname;
 //   const email = req.body.email;

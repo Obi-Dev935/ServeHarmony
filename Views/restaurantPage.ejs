@@ -5,20 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant Page</title>
     <link rel="stylesheet" href="/css/styles.css"> <!-- Link to the style.css file -->
-
 </head>
 <body class="grid">
     <% if(restaurants && restaurants.length > 0){ %> 
         <% restaurants.forEach(restaurant => { %>
          <div class="card">
-            <a href=""><img src="<%= restaurant.img %>" alt="<%= restaurant.alt %>"></a>
+            <a href=""><img src="<%= restaurant.img %>" alt="<%= restaurant.alt %>" id="Image"></a>
             <h2><%= restaurant.name %></h2>
             <p><%= restaurant.open %></p>
             <p><%= restaurant.Location %></p>
-            <button>Dine in</button>
+            <button><a href="/restaurant/menu">Dine in</a></button>
             <button>TakeAway</button>
          </div>
-             <% }) %>
-           <% } %>
-</body>
+        <% }) %>
+   <% } %>  
+    </body>
 </html>
