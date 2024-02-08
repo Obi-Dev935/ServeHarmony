@@ -153,6 +153,14 @@ html {
 .phone-number-page button:hover {
     background-color: #e8bb82;
 }
+.card button{
+    background-color: var(--bg-secondary);
+    margin: 10px;
+    padding: 20px;
+    width: 60%;
+    font-size: larger;
+}
+
 
 @media only screen and (min-width: 1024px) {
     .grid {
