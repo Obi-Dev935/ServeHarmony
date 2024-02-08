@@ -5,6 +5,8 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose')
 app.use(express.static('public')); 
 
+const restaurants = require('./data')
+
 // const Product = require('./model/product');
 // const Form = require('./model/register');
 
@@ -18,7 +20,7 @@ app.get('/ChoicePage',(request,response) => {
   response.render('ChoicePage')
 });
 app.get('/restaurantPage',(request,response) => {
-  response.render('restaurantPage')
+  response.render('restaurantPage', {restaurants: restaurants})
 });
 
 app.get('/cafePage',(request,response) => {
