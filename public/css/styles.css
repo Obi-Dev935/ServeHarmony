@@ -8,31 +8,33 @@
 html {
     background-color: var(--bg-secondary);
 }
-.cafe, .restaurant {
+
+.card {
     display: flex;
     flex-direction: column;
     width: 80%;
-    margin: auto;
+    margin: 20px auto; /* Suitable margin around cards */
     align-items: center;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-    padding: 5px;
-    margin-top: 10px;
+    padding: 20px; /* Increased padding for space inside */
     border-radius: 10px;
-    background-color: var(--bg-primary);
-    
+    background-color: var(--bg-primary); /* White background for each card */
+    border: 2px solid black; /* Black border around each card */
+    transition: transform 0.3s ease-in-out;
 }
+.card:hover {
+    transform: scale(1.09);
+  }
 #Image {
-    width: 200;
+    width: 200px; /* Corrected to include 'px' */
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
     border-radius: 10px;
-    
 }
 
-.cafe, .restaurant img {
+.cafe img, .restaurant img {
     width: 80%;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
     border-radius: 5px;
-    font-size: 30px;
 }
 
 .page-wrapper {
@@ -95,17 +97,15 @@ html {
     border: solid 4px var(--bg-secondary);
 }
 
-/* Desktops and large screens */
 @media only screen and (min-width: 1024px) {
-    .cafe, .restaurant, .grid {
+    .grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
-/* Tablets and medium screens */
 @media only screen and (max-width: 1023px) {
-    .cafe, .restaurant, .grid {
+    .grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
     }
@@ -115,9 +115,8 @@ html {
     }
 }
 
-/* Mobile phones and small screens */
 @media only screen and (max-width: 767px) {
-    .cafe, .restaurant, .grid {
+    .grid {
         display: grid;
         grid-template-columns: 1fr;
         margin: 5px;
