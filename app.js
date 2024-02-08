@@ -14,7 +14,7 @@ app.set("view engine","ejs")
 app.use(bodyParser.urlencoded({ extended: false }))
 
 app.get('/',(request,response) => {
-  response.render('ChoicePage')
+  response.render('PhonePage')
 });
 
 app.get('/restaurantPage',(request,response) => {

@@ -8,17 +8,7 @@
 
 </head>
 <body class="grid">
-    <% if(restaurants && restaurants.length > 0){ %> 
-        <% restaurants.forEach(restaurant => { %>
-         <div class="card">
-            <img src="<%= restaurant.img %>" alt="<%= restaurant.alt %>">
-            <h2><%= restaurant.name %></h2>
-            <p><%= restaurant.open %></p>
-            <p><%= restaurant.location %></p>
-         </div>
-        <% }) %>
-        <% } %>
-    <!-- <div class="restaurant">
+    <div class="restaurant">
         <img src="images/Centuryburger.png" alt="Centuryburger" id="Image">
         <h2>Centuryburger</h2>
         <p>Open Hours: 7:00 AM - 12:00 PM</p>
@@ -26,35 +16,35 @@
     </div>
 
     <div class="restaurant">
-        <img src="images/Bird.png" alt="Bird" id="Image">
+        <img src="images/kfc.png" alt="KFC" id="Image">
         <h2>KFC</h2>
         <p>Open Hours: 6:00 AM - 2:00 AM</p>
         <p>Location: Olaya</p>
     </div>
 
-    <div class="restaurant">
-        <img src="images/burgermap.png" alt="BurgerMap" id="Image">
+    <div class="card">
+        <a href=""><img src="images/burgermap.png" alt="BurgerMap" id="Image"></a>
         <h2>BurgerMap</h2>
         <p>Open Hours: 8:00 AM - 3:00 AM</p>
         <p>Location: Al Tahlia</p>
     </div>
 
-    <div class="restaurant">
-        <img src="images/baitelshawaya.png" alt="Bait El Shawaya" id="Image">
+    <div class="card">
+        <a href=""><img src="images/baitelshawaya.png" alt="Bait El Shawaya" id="Image"></a>
         <h2>Bait El Shawaya</h2>
         <p>Open Hours: 11:00 AM - 11:00 PM</p>
         <p>Location: Olaya</p>
     </div>
 
-    <div class="restaurant">
-        <img src="images/ShawarmaHouse.png" alt="Saraya El Turky" id="Image">
+    <div class="card">
+        <a href=""><img src="images/ShawarmaHouse.png" alt="Saraya El Turky" id="Image"></a>
         <h2>Saraya El Turky</h2>
         <p>Open Hours: 11:00 AM - 2:00 AM</p>
         <p>Location: Al Ghadeer</p>
     </div>
 
-    <div class="restaurant">
-        <img src="images/MamaNora.png" alt="Burj El Kabab" id="Image">
+    <div class="card">
+        <a href=""><img src="images/MamaNora.png" alt="Burj El Kabab" id="Image"></a>
         <h2>Mama Noura</h2>
         <p>Open Hours: 11:00 AM - 12:00 AM</p>
         <p>Location: Al Wurud</p>
