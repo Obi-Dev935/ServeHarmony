@@ -1,7 +1,7 @@
 {
   "name": "serveharmony",
   "version": "1.0.0",
-  "description": "",
+  "description": "ServeHarmony is a web-based application that enhances the traditional process of reserving tables and ordering experience in restaurants or cafes. The entire process of reserving tables, making orders and tracking order status will be done by ServeHarmony.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,5 +15,9 @@
     "express": "^4.18.2",
     "mongodb": "^6.3.0",
     "mongoose": "^8.1.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "eslint-plugin-react": "^7.33.2"
   }
 }

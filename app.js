@@ -6,6 +6,7 @@ const mongoose = require('mongoose')
 app.use(express.static('public')); 
 
 const restaurants = require('./data')
+const cafes = require('./dataCafe')
 
 // const Product = require('./model/product');
 // const Form = require('./model/register');
@@ -24,7 +25,7 @@ app.get('/restaurantPage',(request,response) => {
 });
 
 app.get('/cafePage',(request,response) => {
-  response.render('cafePage')
+  response.render('cafePage', {cafes:cafes})
 });
 
 app.get('/restaurant/menu',(request,response) => {

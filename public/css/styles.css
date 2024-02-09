@@ -34,7 +34,7 @@ html {
 }
 
 .cafe img, .restaurant img {
-    /* width: 80%; */
+    
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
     border-radius: 5px;
 }
@@ -49,31 +49,20 @@ html {
 }
 
 .content-box {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    align-items: start;
-    text-align: left;
-    padding: 40px;
-    background-color: var(--text-primary);
-    box-shadow: 0 20px 30px rgba(0,0,0,0.4);
-    width: 90%;
-    max-width: 800px;
-    border-radius: 10px;
+    text-align: center;
 }
 
 .title {
-    grid-column: 1 / 2;
-    place-self: center start;
     color: var(--text-secondary);
+    margin-bottom: 20px;
 }
 
 .option-list {
-    grid-column: 2 / 3;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     padding: 0;
+    list-style-type: none;
 }
 
 .option-item {
@@ -83,20 +72,32 @@ html {
 .option-link {
     background-color: var(--bg-secondary);
     text-decoration: none;
-    color: var(--text-primary);
+    color: var(--text-secondary);
     font-weight: 500;
     padding: 15px 30px;
-    font-size: 16px;
     border: 2px solid var(--text-primary);
-    border-radius: 5px;
+    border-radius: 15px;
     transition: background-color 0.3s, color 0.3s;
-    width: 100%;
+    width: 200px; /* Adjust this value as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .option-link:hover, .option-link:focus {
-    background-color: var(--text-primary);
+    background-color: rgb(226, 221, 221);
     color: var(--bg-secondary);
     border: solid 4px var(--bg-secondary);
+}
+
+.content-box {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 20px 30px rgba(0,0,0,0.4);
+    width: 90%;
+    max-width: 400px; /* Adjust this value for a smaller size */
+    padding: 20px; /* Adjust padding for suitable size */
+    margin: auto;
 }
 
 .phone-number-page {
@@ -113,28 +114,25 @@ html {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center; /* Added to center the content vertically */
     padding: 2rem;
     background-color: var(--text-primary);
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     width: 90%;
-    max-width: 400px; /* Ensures good appearance on desktop */
-    margin: auto; /* Center the container vertically for smaller heights */
+    max-width: 400px;
+    margin: auto;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
 }
 
 .phone-number-page h1 {
     color: var(--bg-secondary); /* Using the secondary color for the heading */
-    margin-bottom: 2rem;
-}
-
-.phone-number-page label, .phone-number-page input[type="tel"], .phone-number-page button {
-    width: 80%; /* Ensuring label, input, and button have the same width */
-    margin: 10px 0; /* Consistent margin for vertical spacing */
+    margin-bottom: 2rem;    
 }
 
 .phone-number-page input[type="tel"] {
     padding: 10px;
+    width: 95%;
     border-radius: 5px;
     border: 1px solid var(--bg-secondary);
     background-color: var(--bg-primary);
@@ -142,17 +140,20 @@ html {
 }
 
 .phone-number-page button {
-    padding: 10px 20px;
-    color: var(--text-primary);
+    margin-top: 20px; /* Adjust as needed */
+    padding: 15px 30px; /* Adjust padding for suitable size */
+    width: 100%; /* Button takes full width of the container */
+    color: white;
     background-color: var(--bg-secondary);
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
-.phone-number-page button:hover {
-    background-color: #e8bb82;
-}
+
+.phone-number-page button:hover{
+    background-color: rgb(226, 221, 221);}
+
 .card button{
     background-color: var(--bg-secondary);
     margin: 10px;
@@ -161,7 +162,17 @@ html {
     font-size: larger;
 }
 
-.popup{
+.card button:hover{
+    background-color: rgb(226, 221, 221);
+}
+
+.card a{
+    text-decoration: none;
+    color: black;
+}
+
+
+#popup{
     background-color: #ffffff;
     width: 450px;
     padding: 30px 40px;
@@ -175,7 +186,15 @@ html {
     text-align: center;
 }
 
-.popup button{
+.container h1{
+    color:black
+}
+
+.container button{
+    color: black;
+}
+
+#popup button{
     display: block;
     margin:  0 0 20px auto;
     background-color: transparent;
@@ -190,6 +209,10 @@ html {
     .grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
+       
+    }
+    .card{
+        width: 70%;
     }
 }
 
@@ -201,6 +224,9 @@ html {
     p {
         margin: 5px;
         font-size: 20px;
+    }
+    .card{
+        width: 70%;
     }
 }
 
@@ -216,7 +242,26 @@ html {
         font-size: 20px;
     }
     .phone-number-page .container {
-        width: 80%; /* Slightly wider container for small screens */
+      
+        width: 75%; /* Slightly wider container for small screens */
+        margin: auto;
+
     }
+
+    .page-wrapper {
+        background-color: var(--bg-secondary);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin:auto;
+        width: 60%;
+        height: 100vh;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .card{
+        width: 65%;
+    }
+    
 }
 
