@@ -1,19 +1,23 @@
-document.addEventListener('load', function() {
-    const popupWindow = document.getElementById("popup");
-    const closeButton = document.getElementById("close-button");
-  
-    popupWindow.style.display = 'block';
-    
-      
-    // doc.addEventListener('load', function(event) {
-    //   event.preventDefault();
-    //   popupWindow.style.display = "block";
-    // });
-  
-    closeButton.addEventListener("click", function() {
-      popupWindow.style.display = "none";
-    });
-});
+// document.addEventListener("DOMContentLoaded", function(event) {
+//   const popup = document.getElementById('popup');
+//   popup.style.display = 'block';
+// });
+
+// const closePopupButton = document.getElementById('closePopup');
+
+// closePopupButton.addEventListener('click', () => {
+//   const popup = document.getElementById('popup');
+//   popup.style.display = 'none';
+// });
+
+// // Additional functionality for submitting the number of people
+// const submitPeopleButton = document.getElementById('submitPeople');
+// const numberOfPeopleInput = document.getElementById('numberOfPeople');
+
+// submitPeopleButton.addEventListener('click', () => {
+//   const numberOfPeople = numberOfPeopleInput.value;
+//   alert(`Number of people entered: ${numberOfPeople}`);
+// });
 
 // window.addEventListener("load", function(){
 //     setTimeout(

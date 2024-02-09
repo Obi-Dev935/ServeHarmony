@@ -172,20 +172,39 @@ html {
 }
 
 
-#popup{
-    background-color: #ffffff;
-    width: 450px;
-    padding: 30px 40px;
-    position: absolute;
-    transform: translate(-50%,-50%);
-    left: 50%;
-    top: 50%;
-    border-radius: 8px;
-    font-family: "Poppins",sans-serif;
+.popup {
     display: none;
-    text-align: center;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
 }
-
+  
+.popup-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%;
+}
+  
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+  
+.close:hover,.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+  
 .container h1{
     color:black
 }
@@ -194,17 +213,7 @@ html {
     color: black;
 }
 
-#popup button{
-    display: block;
-    margin:  0 0 20px auto;
-    background-color: transparent;
-    font-size: 30px;
-    color: #c5c5c5;
-    border: none;
-    outline: none;
-    cursor: pointer;
-}
- 
+
 @media only screen and (min-width: 1024px) {
     .grid {
         display: grid;

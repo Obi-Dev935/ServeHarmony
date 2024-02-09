@@ -20,17 +20,36 @@
   </header>
   <main>
     <section>
-        <div id="popup">
-            <form action="/">
-                <label for="email"><b>Email</b></label>
-                <input type="text" placeholder="Enter Email" name="email">
-                <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" >
-                <button id="close-button">Close</button>      
-            </form>
+        <div id="popup" class="popup">
+          <div class="popup-content">
+            <!-- <span class="close" id="closePopup">&times;</span> -->
+            <h2>Enter the number of people:</h2>
+            <input type="number" id="numberOfPeople" placeholder="Enter number of people">
+            <button id="closePopup">Submit</button>
+          </div>
         </div>
     </section>
   </main>
-  <script src="../script.js"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    const closePopupButton = document.getElementById('closePopup');
+    const popup = document.getElementById('popup');
+    popup.style.display = 'block';
+
+    closePopupButton.addEventListener('click', () => {
+      const popup = document.getElementById('popup');
+      popup.style.display = 'none';
+    });
+
+  });
+// Additional functionality for submitting the number of people
+// const submitPeopleButton = document.getElementById('submitPeople');
+// const numberOfPeopleInput = document.getElementById('numberOfPeople');
+
+// submitPeopleButton.addEventListener('click', () => {
+//   const numberOfPeople = numberOfPeopleInput.value;
+  
+// }); 
+  </script>
 </body>
 </html>
