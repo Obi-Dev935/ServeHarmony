@@ -12,10 +12,10 @@
          <div class="card">
             <a href=""><img src="<%= restaurant.img %>" alt="<%= restaurant.alt %>" id="Image"></a>
             <h2><%= restaurant.name %></h2>
-            <p><%= restaurant.open %></p>
-            <p><%= restaurant.Location %></p>
+            <p><strong>Open Hours: </strong> <%= restaurant.open %></p>
+            <p><strong>Location:</strong> <%= restaurant.location %></p>
             <button id="popup-link"><a href="/restaurant/menu">Dine in</a></button>
-            <button>TakeAway</button>
+            <button>Take Away</button>
          </div>
         <% }) %>
    <% } %>  
