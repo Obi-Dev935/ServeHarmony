@@ -10,12 +10,12 @@
     <% if(restaurants && restaurants.length > 0){ %> 
         <% restaurants.forEach(restaurant => { %>
          <div class="card">
-            <a href=""><img src="<%= restaurant.img %>" alt="<%= restaurant.alt %>" id="Image"></a>
+            <a href="/restaurant/menu/<%= restaurant.name %>"><img src="<%= restaurant.img %>" alt="<%= restaurant.alt %>" id="Image"></a>
             <h2><%= restaurant.name %></h2>
             <p><strong>Open Hours: </strong> <%= restaurant.open %></p>
             <p><strong>Location:</strong> <%= restaurant.location %></p>
-            <button id="popup-link"><a href="/restaurant/menu">Dine in</a></button>
-            <button>Take Away</button>
+            <button id="popup-link"><a href="/restaurant/menu/<%= restaurant.name %>">Dine in</a></button>
+            <button><a href="/restaurant/menu/<%= restaurant.name %>">Take Away</a></button>
          </div>
         <% }) %>
    <% } %>  

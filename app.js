@@ -8,6 +8,8 @@ app.use(express.static('public'));
 const restaurants = require('./data')
 const cafes = require('./dataCafe')
 
+const Item = require('./model/menu');
+
 // const Product = require('./model/product');
 // const Form = require('./model/register');
 
@@ -28,8 +30,12 @@ app.get('/cafePage',(request,response) => {
   response.render('cafePage', {cafes:cafes})
 });
 
-app.get('/restaurant/menu',(request,response) => {
+app.get('/restaurant/menu/:name',(request,response) => {
   response.render('menu')
+  const restaurantName = decodeURIComponent(request.params.name);
+  // Item.find(restaurantName)
+  // .then()
+  // .catch()
 });
 
 // app.get('/Register/v1/',(request,response) => {
