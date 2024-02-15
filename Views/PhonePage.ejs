@@ -9,17 +9,14 @@
 <body class="unique-background phone-number-page"> <!-- Added 'phone-number-page' class -->
     <div class="container">
         <h1>Enter Your Phone Number</h1>
-        <form id="phoneNumberForm">
+        <form id="phoneNumberForm" action="/ChoicePage">
             <label for="phoneNumber">Phone Number:</label>
-            <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Enter your phone number" required>
-            <button type="button" onclick="submitForm()">Submit</button>
+            <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Enter your phone number" >
+            <p id="number_err" class="error"></p>
+            <button type="submit">Submit</button>
         </form>
     </div>
-
-    <script>
-        function submitForm() {
-            window.location.href = '/ChoicePage'; // Updated to reflect your desired redirect URL
-        }
+    <script src="/js/input.js">
     </script>
 </body>
 </html>
