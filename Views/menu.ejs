@@ -12,24 +12,22 @@
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-  <header>
-    
-    <nav>
-      
-    </nav>
-  </header>
   <main>
     <section>
-        <div id="popup" class="popup">
-          <div class="popup-content">
-            <!-- <span class="close" id="closePopup">&times;</span> -->
-            <h2>Enter the number of people:</h2>
-            <input type="number" id="numberOfPeople" placeholder="Enter number of people">
-            <button id="closePopup">Submit</button>
-          </div>
+      <div id="popup" class="popup">
+        <div class="popup-content">
+          <form id="peopleNumber" action="">
+          <h2>Enter the number of people:</h2>
+          <input type="number" id="numberOfPeople" placeholder="Enter number of people">
+          <p id="numberofpeople_err" class="error"></p>
+          <button type="submit" id="closePopup">Submit</button>
+          <!-- <button id="closePopup">Submit</button> -->
+        </form>
         </div>
+      </div>
     </section>
   </main>
   <script src="/js/script.js"></script>
 </body>
+
 </html>

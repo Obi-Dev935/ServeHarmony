@@ -7,17 +7,17 @@
     <link rel="stylesheet" href="/css/styles.css"> <!-- Link to the style.css file -->
 </head>
 <body class="grid">
-    <% if(cafes && cafes.length > 0){ %> 
-        <% cafes.forEach(cafe => { %>
-         <div class="card">
-            <a href=""><img src="<%= cafe.img %>" alt="<%= cafe.alt %>" id="Image"></a>
-            <h2><%= cafe.name %></h2>
-            <p><strong>Open Hours: </strong><%= cafe.open %></p>
-            <p><strong>Location: </strong><%= cafe.location %></p>
-            <button><a href="/restaurant/menu">Dine in</a></button>
-            <button>Take Away</button>
-         </div>
+    <% if(cafes && cafes.length> 0){ %>
+        <% cafes.forEach(cafe=> { %>
+            <div class="card">
+                <a href=""><img src="<%= cafe.img %>" alt="<%= cafe.alt %>" id="Image"></a>
+                <h2><%= cafe.name %></h2>
+                <p><strong>Open Hours: </strong><%= cafe.open %></p>
+                <p><strong>Location: </strong><%= cafe.location %></p>
+                <button><a href="/restaurant/menu">Dine in</a></button>
+                <button>Take Away</button>
+            </div>
         <% }) %>
-   <% } %>
+    <% } %>
 </body>
 </html>

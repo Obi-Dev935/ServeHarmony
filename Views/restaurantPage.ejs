@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurant Page</title>
-    <link rel="stylesheet" href="/css/styles.css"> <!-- Link to the style.css file -->
+    <!-- general meta tags -->
+    <meta charset="utf-8">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- style sheets -->
+    <link rel="stylesheet" href="/css/styles.css">
+    <!-- javascript files -->
+    <script src=""></script>
 </head>
 <body class="grid">
-    <% if(restaurants && restaurants.length > 0){ %> 
-        <% restaurants.forEach(restaurant => { %>
-         <div class="card">
-            <a href="/restaurant/menu/<%= restaurant.name %>"><img src="<%= restaurant.img %>" alt="<%= restaurant.alt %>" id="Image"></a>
-            <h2><%= restaurant.name %></h2>
-            <p><strong>Open Hours: </strong> <%= restaurant.open %></p>
-            <p><strong>Location:</strong> <%= restaurant.location %></p>
-            <button id="popup-link"><a href="/restaurant/menu/<%= restaurant.name %>">Dine in</a></button>
-            <button><a href="/restaurant/menu/<%= restaurant.name %>">Take Away</a></button>
-         </div>
-        <% }) %>
-   <% } %>  
-    </body>
+    <% if(restaurants && restaurants.length> 0){ %>
+        <% restaurants.forEach(restaurant=> { %>
+            <div class="card">
+                <a href="/restaurant/menu/<%= restaurant.name %>"><img src="<%= restaurant.img %>" alt="<%= restaurant.alt %>" id="Image"></a>
+                <h2><%= restaurant.name %></h2>
+                <p><strong>Open Hours: </strong><%= restaurant.open %></p>
+                <p><strong>Location:</strong><%= restaurant.location %></p>
+                <button id="popup-link"><a href="/restaurant/menu/<%= restaurant.name %>">Dine in</a></button>
+                <button><a href="/restaurant/menu/<%= restaurant.name %>">Take Away</a></button>
+            </div>
+            <% }) %>
+    <% } %>
+</body>
 </html>

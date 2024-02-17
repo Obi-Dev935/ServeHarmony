@@ -161,6 +161,11 @@ html {
     text-align: center;
 }
 
+#numberofpeople_err{
+    color: red;
+    text-align: center;
+}
+
 .card button{
     background-color: var(--bg-secondary);
     margin: 10px;
