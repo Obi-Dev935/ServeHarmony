@@ -9,19 +9,21 @@
     <link rel="stylesheet" href="/css/styles.css">
     <!-- javascript files -->
     <script src=""></script>
- </head>   <!-- zrestaurant page thats takes data from a js file -->
-<body class="grid">
-    <% if(restaurants && restaurants.length> 0){ %>
-        <% restaurants.forEach(restaurant=> { %>
-            <div class="card">
-                <a href="/restaurant/menu/<%= restaurant.name %>"><img src="<%= restaurant.img %>" alt="<%= restaurant.alt %>" id="Image"></a>
-                <h2><%= restaurant.name %></h2>
-                <p><strong>Open Hours: </strong><%= restaurant.open %></p>
-                <p><strong>Location:</strong><%= restaurant.location %></p>
-                <button id="popup-link"><a href="/restaurant/menu/<%= restaurant.name %>">Dine in</a></button>
-                <button><a href="/restaurant/menu/<%= restaurant.name %>">Take Away</a></button>
-            </div>
-            <% }) %>
-    <% } %>
+ </head>   <!-- restaurant page thats takes data from a js file -->
+<body>
+    <main class="grid">
+        <% if(restaurants && restaurants.length> 0){ %>
+            <% restaurants.forEach(restaurant=> { %>
+                <div class="card">
+                    <a href="/restaurant/menu/<%= restaurant.name %>"><img src="<%= restaurant.img %>" alt="<%= restaurant.alt %>" id="Image"></a>
+                    <h2><%= restaurant.name %></h2>
+                    <p><strong>Open Hours: </strong><%= restaurant.open %></p>
+                    <p><strong>Location:</strong><%= restaurant.location %></p>
+                    <button id="popup-link"><a href="/restaurant/menu/<%= restaurant.id %>" data-id="<%= restaurant.id %>">Dine in</a></button>
+                    <button data-id="<%= restaurant.id %>"><a href="/restaurant/menu/<%= restaurant.name %>">Take Away</a></button>
+                </div>
+                <% }) %>
+        <% } %>
+    </main>
 </body>
 </html>

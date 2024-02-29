@@ -8,7 +8,7 @@ app.use(express.static('public'));
 const restaurants = require('./data')
 const cafes = require('./dataCafe')
 
-const Item = require('./model/menu');
+const Restaurant = require('./model/menu');
 
 // const Product = require('./model/product');
 // const Form = require('./model/register');
@@ -30,11 +30,12 @@ app.get('/cafePage',(request,response) => {
   response.render('cafePage', {cafes:cafes})
 });
 
-app.get('/restaurant/menu/:name',(request,response) => {
-  response.render('menu')
-  const restaurantName = decodeURIComponent(request.params.name);
-  // Item.find(restaurantName)
-  // .then()
+app.get('/restaurant/menu/:id',(request,response) => {
+  const restaurantid = request.params.id;
+  // Restaurant.findById(restaurantid)
+  // .then(data => {
+  //   response.render('menu',{restaurant: data});
+  // })
   // .catch()
 });
 
