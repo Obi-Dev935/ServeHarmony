@@ -5,10 +5,9 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose')
 app.use(express.static('public')); 
 
-const restaurants = require('./data')
 const cafes = require('./dataCafe')
 
-const Restaurant = require('./model/menu');
+const restaurants = require('./model/menu');
 
 // const Product = require('./model/product');
 // const Form = require('./model/register');
@@ -23,7 +22,11 @@ app.get('/ChoicePage',(request,response) => {
   response.render('ChoicePage')
 });
 app.get('/restaurantPage',(request,response) => {
-  response.render('restaurantPage', {restaurants: restaurants})
+  restaurants.find()
+  .then(data => {
+    response.render('restaurantPage', {restaurants: data})
+  })
+  .catch()
 });
 
 app.get('/cafePage',(request,response) => {
@@ -32,17 +35,15 @@ app.get('/cafePage',(request,response) => {
 
 app.get('/restaurant/menu/:id',(request,response) => {
   const restaurantid = request.params.id;
-  // Restaurant.findById(restaurantid)
-  // .then(data => {
-  //   response.render('menu',{restaurant: data});
-  // })
-  // .catch()
+  restaurants.findById(restaurantid)
+  .then(data => {
+    response.render('menu',{restaurants: data});
+  })
+  .catch((err) => {
+    console.log(`Error when adding a Form object: ${err}`);
+    response.render('menu',{restaurants: []})
+  })
 });
-
-// app.get('/Register/v1/',(request,response) => {
-//     response.render('Register', {title: 'Add products', message: '', error: ''})
-// });
-
 
 app.use((request,response) => { 
   response.status(404).send('<h1>Error</h1>')
@@ -60,7 +61,9 @@ mongoose.connect(process.env.MONGO_URI)
   })
   
   
-  
+// app.get('/Register/v1/',(request,response) => {  
+//     response.render('Register', {title: 'Add products', message: '', error: ''})
+// });
   
 // app.post('/Register/v1/', (req, res) => {
 //   const name = req.body.name;
