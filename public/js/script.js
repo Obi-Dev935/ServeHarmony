@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", function(event) {
   const popup = document.getElementById('popup');
-  popup.style.display = 'none';
+  popup.style.display = 'block';
     
   const closePopupButton = document.getElementById('closePopup');
-  closePopupButton.addEventListener("submit", (e) => {
+  closePopupButton.addEventListener("click", (e) => {
     let numberOfPeople = document.getElementById("numberOfPeople").value;
     console.log(numberOfPeople);
     if(numberOfPeople == 0){

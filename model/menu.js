@@ -18,6 +18,7 @@ const restaurantSchema = new Schema({
   image: { type: String},
   openHours: { type: String, required: true },
   address: { type: String, required: true },
+  tables: { type: String, required: true },
   categories: [categorySchema] // Embedding categories in restaurants
 });
 

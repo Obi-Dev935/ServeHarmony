@@ -196,6 +196,7 @@ color: red;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
     text-align: center;
     z-index: 1000;
+    overlay: black;
 }
   
 .popup-content {
