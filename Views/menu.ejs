@@ -24,14 +24,15 @@
       </div> -->
       <div>
         <% restaurants.categories.forEach(category => { %>
-          <h2><%= category.name %></h2>
+          <h2 class="category"><%= category.name %></h2>
           <ul class="grid">
             <% category.items.forEach(item => { %>
               <li class="card">
-                <!-- <img src="<%= item.img %>"> -->
+                <img src="/images/<%= item.img %>" id="Image">
                 <h3><%= item.name %></h3>
                 <p><%= item.details %></p>
-                <p>Price: $<%= item.price %></p>
+                <p>Price: <%= item.price %> SAR</p>
+                <button>Add to Cart</button>
               </li>
             <% }); %>
           </ul>

@@ -234,6 +234,12 @@ color: red;
     color: black;
 }
 
+.category{
+    text-align: center;
+    background-color:var(--bg-primary);
+    border: solid var(--text-secondary);
+}
+
 
 @media only screen and (min-width: 1024px) {
     .grid {
