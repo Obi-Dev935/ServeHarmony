@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     console.log(numberOfPeople);
     if(numberOfPeople == 0){
       e.preventDefault();
-      displayErrorMessageByID("numberofpeople_err", "Number of People should not be 0");
+      displayErrorMessageByID("numberofpeople_err", "Number of People should not be Empty");
     }else if(numberOfPeople < 0 ){
       e.preventDefault();
       displayErrorMessageByID("numberofpeople_err", "Number of People should not be in negative");
