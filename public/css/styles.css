@@ -220,10 +220,6 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-input[type=number] {
-  -moz-appearance: textfield;
-}
-  
 .popup button {
     padding: 10px 20px;
     background-color: var(--bg-secondary);
