@@ -4,16 +4,33 @@ const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose')
 app.use(express.static('public')); 
+const session = require('express-session')
+const MongoDBStore = require('connect-mongodb-session')(session)
 
-const cafes = require('./dataCafe')
+let sessionStore = new MongoDBStore({
+  uri: process.env.MONGO_URI,
+  collection: 'mySessions'
+});
 
-const restaurants = require('./model/menu');
+sessionStore.on('error', function(error){
+  console.log(error);
+});
 
-// const Product = require('./model/product');
-// const Form = require('./model/register');
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  cookie: {
+    maxAge: 1000 * 60 * 60,
+  },
+  saveUninitialized: true,
+  resave: true,
+  store: sessionStore
+}))
 
 app.set("view engine","ejs")
 app.use(bodyParser.urlencoded({ extended: false }))
+
+const cafes = require('./dataCafe')
+const restaurants = require('./model/menu');
 
 app.get('/',(request,response) => {
   response.render('PhonePage')
@@ -44,6 +61,10 @@ app.get('/restaurant/menu/:id',(request,response) => {
     response.render('menu',{restaurants: []})
   })
 });
+
+app.get('/restaurant/menu/:id/cart', (request,response) => {
+  response.render('Cart')
+})
 
 app.use((request,response) => { 
   response.status(404).send('<h1>Error</h1>')
