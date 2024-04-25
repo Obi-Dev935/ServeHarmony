@@ -9,15 +9,21 @@ let basket = JSON.parse(localStorage.getItem("data")) || [];
 let addtoCart = (button) => {
     let itemId = button.getAttribute('data-id'); // Use getAttribute to get the item ID from the button
     let search = basket.find((x) => x.id === itemId);
-  
-    if (search === undefined) {
-      basket.push({
-        id: itemId,
-        item: 1,
+    fetch(`/addTocart/${itemId}`, {method: "POST"})
+      .then((result) => {
+
+      })
+      .catch((err) => {
+        
       });
-    } else {
-      search.item += 1;
-    }
+    // if (search === undefined) {
+    //   basket.push({
+    //     id: itemId,
+    //     item: 1,
+    //   });
+    // } else {
+    //   search.item += 1;
+    // }
   
     localStorage.setItem("data", JSON.stringify(basket));
     update(itemId); // Update UI

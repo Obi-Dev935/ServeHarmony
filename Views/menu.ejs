@@ -13,7 +13,8 @@
 </head>
 <body>
   <main>
-    <a href="/restaurant/menu/<%= restaurant.id %>/cart">Cart</a>
+
+    <a href="/restaurant/menu/cart/">Cart</a>
     <section>
       <div id="popup" class="popup">
         <div class="popup-content">
@@ -34,7 +35,8 @@
                 <h3><%= item.name %></h3>
                 <p><%= item.details %></p>
                 <p>Price: <%= item.price %> SAR</p>
-                <button onclick="addtoCart(this)" data-id="<%= item.id %>">Add to Cart</button>
+                <p>Price: <%= item.id %> SAR</p>
+                <button onclick="addtoCart(this)" data-id="<%= item.menuItemId %>">Add to Cart</button>
               </li>
             <% }); %>
           </ul>

@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const menuItemSchema = new Schema({
+  menuItemId: { type: Schema.ObjectId },
   name: { type: String, required: true },
   img: { type: String, required: true },
   details: { type: String, required: true },

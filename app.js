@@ -50,10 +50,16 @@ app.get('/cafePage',(request,response) => {
   response.render('cafePage', {cafes:cafes})
 });
 
+app.post('/addTocart/:menuItemId', () => {
+  request.session.cart.add(menuitemId);
+});
+
 app.get('/restaurant/menu/:id',(request,response) => {
   const restaurantid = request.params.id;
   restaurants.findById(restaurantid)
   .then(data => {
+    request.session.restaurantid = restaurantid;
+    request.session.cart = [];
     response.render('menu',{restaurants: data});
   })
   .catch((err) => {
@@ -62,8 +68,15 @@ app.get('/restaurant/menu/:id',(request,response) => {
   })
 });
 
-app.get('/restaurant/menu/:id/cart', (request,response) => {
-  response.render('Cart')
+app.get('/restaurant/menu/cart', (request,response) => {
+  const items = [];
+  request.session.cart.forEach((itemId) => {
+    restaurants.find( restaurants.categories.itemid = itemId)
+      .then((menuItem) => {
+        items.push(menuItem);
+      });
+  });
+  response.render('Cart', {cart: items})
 })
 
 app.use((request,response) => { 
