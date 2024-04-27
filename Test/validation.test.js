@@ -35,7 +35,7 @@ describe('PhoneNumber Validation', () => {
   });
 
   // Test invalid phone number format
-  it('should prevent submission and show error for an invalid phone number format', () => {
+  it('should prevent submission and show error for an invalid phone number formats', () => {
     document.getElementById('phoneNumber').value = '1234567890';
     document.getElementById('phoneNumberForm').dispatchEvent(new Event('submit', { cancelable: true }));
 
