@@ -82,7 +82,7 @@ app.get('/restaurant/menu/:id',(request,response) => {
     });
 });
 
-app.get('/restaurant/cart', (request,response) => {
+app.get('/restaurant/menu/cart', (request,response) => {
   const cart = request.session.cart;
   console.log(cart);
   if (!cart) {
