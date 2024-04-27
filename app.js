@@ -74,7 +74,7 @@ app.get('/restaurant/menu/:id',(request,response) => {
   restaurants.findById(restaurantid)
     .then((data) => {
       request.session.restaurantid = restaurantid;
-      request.session.cart = [];
+      // request.session.cart = [];
       response.render('menu', { restaurants: data });
     })
     .catch((err) => {
@@ -82,13 +82,10 @@ app.get('/restaurant/menu/:id',(request,response) => {
     });
 });
 
-app.get('/restaurant/menu/cart', (request,response) => {
+app.get('/restaurant/cart', (request,response) => {
   const cart = request.session.cart;
   console.log(cart);
-  if (!cart) {
-    cart = [];  // Initialize an empty cart if not already set
-  }
-  response.render('cart', {items: cart})
+  response.render('cart', {cart})
 });
 
 app.use((request,response) => { 

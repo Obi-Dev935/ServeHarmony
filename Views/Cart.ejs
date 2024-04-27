@@ -14,9 +14,9 @@
 <body>
   <main>
       <div>
-        <% if (items && items.length > 0){ %>
-        <ul>
-          <% items.forEach(item => { %>
+        <% if (cart && cart.length > 0){ %>
+          <ul>
+            <% cart.forEach(item => { %>
             <li class="card">
               <img src="/images/<%= item.itemImg %>" id="Image">
               <h3><%= item.itemName %></h3>
