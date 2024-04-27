@@ -28,6 +28,7 @@ app.use(session({
 
 app.set("view engine","ejs")
 app.use(bodyParser.urlencoded({ extended: false }))
+app.use(express.json())
 
 const cafes = require('./dataCafe')
 const restaurants = require('./model/menu');
@@ -50,34 +51,45 @@ app.get('/cafePage',(request,response) => {
   response.render('cafePage', {cafes:cafes})
 });
 
-app.post('/addTocart/:menuItemId', () => {
-  request.session.cart.add(menuitemId);
+app.post('/cart/add', (request,response) => {
+  const { menuItemId, itemName, itemPrice, itemImg, quantity } = request.body; 
+  const cart = request.session.cart = []; 
+
+  const existingItem = cart.find(item => item.menuItemId === menuItemId);
+  if (existingItem) {
+    // If it exists, increment the quantity
+    existingItem.quantity += quantity;
+  } else {
+    // Otherwise, add a new item to the cart with quantity 1
+    cart.push({ menuItemId,itemName, itemPrice, itemImg, quantity});
+  }
+
+  request.session.cart = cart;
+  response.status(200).json({ success: true, cart });
 });
 
 app.get('/restaurant/menu/:id',(request,response) => {
   const restaurantid = request.params.id;
+
   restaurants.findById(restaurantid)
-  .then(data => {
-    request.session.restaurantid = restaurantid;
-    request.session.cart = [];
-    response.render('menu',{restaurants: data});
-  })
-  .catch((err) => {
-    console.log(`Error when adding a Form object: ${err}`);
-    response.render('menu',{restaurants: []})
-  })
+    .then((data) => {
+      request.session.restaurantid = restaurantid;
+      request.session.cart = [];
+      response.render('menu', { restaurants: data });
+    })
+    .catch((err) => {
+      response.render('menu', { restaurants: [] });
+    });
 });
 
-app.get('/restaurant/menu/cart', (request,response) => {
-  const items = [];
-  request.session.cart.forEach((itemId) => {
-    restaurants.find( restaurants.categories.itemid = itemId)
-      .then((menuItem) => {
-        items.push(menuItem);
-      });
-  });
-  response.render('Cart', {cart: items})
-})
+app.get('/restaurant/cart', (request,response) => {
+  const cart = request.session.cart;
+  console.log(cart);
+  if (!cart) {
+    cart = [];  // Initialize an empty cart if not already set
+  }
+  response.render('cart', {items: cart})
+});
 
 app.use((request,response) => { 
   response.status(404).send('<h1>Error</h1>')

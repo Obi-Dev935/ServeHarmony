@@ -13,8 +13,7 @@
 </head>
 <body>
   <main>
-
-    <a href="/restaurant/menu/cart/">Cart</a>
+    <a href="/restaurant/cart">Cart</a>
     <section>
       <div id="popup" class="popup">
         <div class="popup-content">
@@ -26,6 +25,7 @@
         </div>
       </div>
       <div>
+        <% if (restaurants && restaurants.categories) { %>
         <% restaurants.categories.forEach(category => { %>
           <h2 class="category"><%= category.name %></h2>
           <ul class="grid">
@@ -35,12 +35,12 @@
                 <h3><%= item.name %></h3>
                 <p><%= item.details %></p>
                 <p>Price: <%= item.price %> SAR</p>
-                <p>Price: <%= item.id %> SAR</p>
-                <button onclick="addtoCart(this)" data-id="<%= item.menuItemId %>">Add to Cart</button>
+                <button onclick="addtoCart(this)" data-id="<%= item.menuItemId %>" data-img="<%= item.img %>" data-name="<%= item.name %>" data-price="<%= item.price %>">Add to Cart</button>
               </li>
             <% }); %>
           </ul>
           <% }); %>
+          <% }; %>
       </div>
     </section>
   </main>
