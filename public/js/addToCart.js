@@ -1,4 +1,4 @@
-let addtoCart = (button) => {
+const addtoCart = (button) => {
   let menuItemId = button.getAttribute('data-id'); // Use getAttribute to get the item ID from the button
   let itemImg = button.getAttribute('data-img'); 
   let itemName = button.getAttribute('data-name');
@@ -13,18 +13,8 @@ let addtoCart = (button) => {
       console.log('Failed to add item to cart');
     }
   })
-  .catch(error => console.error('Error:', error));
-    // if (search === undefined) {
-    //   basket.push({
-    //     id: itemId,
-    //     item: 1,
-    //   });
-    // } else {
-    //   search.item += 1;
-    // }
-  
-    // localStorage.setItem("data", JSON.stringify(basket));
-    // update(itemId); // Update UI
+  .catch(error => 
+    console.error('Error:', error));
 };  
 
   

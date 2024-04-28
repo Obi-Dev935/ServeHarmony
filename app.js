@@ -53,8 +53,7 @@ app.get('/cafePage',(request,response) => {
 
 app.post('/cart/add', (request,response) => {
   const { menuItemId, itemName, itemPrice, itemImg, quantity } = request.body; 
-  const cart = request.session.cart = []; 
-
+  const cart = request.session.cart
   const existingItem = cart.find(item => item.menuItemId === menuItemId);
   if (existingItem) {
     // If it exists, increment the quantity
@@ -65,16 +64,22 @@ app.post('/cart/add', (request,response) => {
   }
 
   request.session.cart = cart;
+  console.log(cart);
   response.status(200).json({ success: true, cart });
+});
+
+app.post('/cart/remove', (req, res) => {
+  const { menuItemId } = req.body;
+  req.session.cart = req.session.cart.filter(item => item.menuItemId !== menuItemId);
+  res.json({ success: true });
 });
 
 app.get('/restaurant/menu/:id',(request,response) => {
   const restaurantid = request.params.id;
-
   restaurants.findById(restaurantid)
     .then((data) => {
       request.session.restaurantid = restaurantid;
-      // request.session.cart = [];
+      request.session.cart = [];
       response.render('menu', { restaurants: data });
     })
     .catch((err) => {

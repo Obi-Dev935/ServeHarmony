@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- general meta tags -->
   <meta charset="utf-8">
   <meta name="author" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- site specific tags -->
-  <title></title>
-  <!-- style sheets -->
-  <!-- <link rel="stylesheet" href="css-reset.css"> -->
+  <title>Cart</title>
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
@@ -20,8 +16,9 @@
             <li class="card">
               <img src="/images/<%= item.itemImg %>" id="Image">
               <h3><%= item.itemName %></h3>
-              <p>Price: <%= item.itemPrice %> SAR</p>
+              <p>Price: <%= item.itemPrice * item.quantity %> SAR</p>
               <p>quantity: <%= item.quantity %></p>
+              <button onclick="removeFromCart('<%= item.menuItemId %>')">Remove</button>
             </li>
           <% }); %>
         </ul>
@@ -30,6 +27,7 @@
       </div>
     </section>
   </main>
+  <script src="/js/cart.js"></script>
 </body>
 </html>
       <!-- <div class="cart">
