@@ -32,6 +32,7 @@ app.use(express.json())
 
 const cafes = require('./dataCafe')
 const restaurants = require('./model/menu');
+const Order = require('./model/order');
 
 app.get('/',(request,response) => {
   response.render('PhonePage')
@@ -49,6 +50,25 @@ app.get('/restaurantPage',(request,response) => {
 
 app.get('/cafePage',(request,response) => {
   response.render('cafePage', {cafes:cafes})
+});
+
+app.get('/restaurant/menu/:id',(request,response) => {
+  const restaurantid = request.params.id;
+  restaurants.findById(restaurantid)
+    .then((data) => {
+      request.session.restaurantid = restaurantid;
+      request.session.cart = [];
+      response.render('menu', { restaurants: data });
+    })
+    .catch((err) => {
+      response.render('menu', { restaurants: [] });
+    });
+});
+
+app.get('/restaurant/cart', (request,response) => {
+  const cart = request.session.cart;
+  console.log(cart);
+  response.render('cart', {cart})
 });
 
 app.post('/cart/add', (request,response) => {
@@ -74,23 +94,24 @@ app.post('/cart/remove', (req, res) => {
   res.json({ success: true });
 });
 
-app.get('/restaurant/menu/:id',(request,response) => {
-  const restaurantid = request.params.id;
-  restaurants.findById(restaurantid)
-    .then((data) => {
-      request.session.restaurantid = restaurantid;
-      request.session.cart = [];
-      response.render('menu', { restaurants: data });
+app.post('/restaurant/order/confirm', (req, res) => {
+  const cart = req.session.cart;
+  if (!cart || cart.length === 0) {
+    console.log("cart is empty");
+  }
+  const order = new Order({
+    menuitems: cart,
+  });
+  order.save()
+    .then(() => {
+      req.session.cart = []; // Clear the cart
+      res.status(200).json({ success: true, message: 'Order confirmed!' });
     })
-    .catch((err) => {
-      response.render('menu', { restaurants: [] });
-    });
+    .catch(err => res.status(500).json({error: err }));
 });
 
-app.get('/restaurant/cart', (request,response) => {
-  const cart = request.session.cart;
-  console.log(cart);
-  response.render('cart', {cart})
+app.get('/restaurant/receipt', (request,response) => {
+  response.render('receiptPage')
 });
 
 app.use((request,response) => { 

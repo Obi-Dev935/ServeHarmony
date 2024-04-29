@@ -1,5 +1,5 @@
 const addtoCart = (button) => {
-  let menuItemId = button.getAttribute('data-id'); // Use getAttribute to get the item ID from the button
+  let menuItemId = button.getAttribute('data-id');
   let itemImg = button.getAttribute('data-img'); 
   let itemName = button.getAttribute('data-name');
   let itemPrice = button.getAttribute('data-price');
