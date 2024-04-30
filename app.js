@@ -23,7 +23,7 @@ app.use(session({
   },
   saveUninitialized: true,
   resave: true,
-  store: sessionStore
+  store: sessionStore,
 }))
 
 app.set("view engine","ejs")
@@ -37,9 +37,12 @@ const Order = require('./model/order');
 app.get('/',(request,response) => {
   response.render('PhonePage')
 });
+
 app.get('/ChoicePage',(request,response) => {
+  request.session.phoneNumber = request.query.phoneNumber
   response.render('ChoicePage')
 });
+
 app.get('/restaurantPage',(request,response) => {
   restaurants.find()
   .then(data => {
@@ -101,18 +104,22 @@ app.post('/restaurant/order/confirm', (req, res) => {
   }
   const order = new Order({
     menuitems: cart,
+    restaurantId: req.session.restaurantid,
+    phoneNumber: req.session.phoneNumber,
+    orderDate: new Date()
   });
   order.save()
-    .then(() => {
-      req.session.cart = []; // Clear the cart
-      res.status(200).json({ success: true, message: 'Order confirmed!' });
-    })
-    .catch(err => res.status(500).json({error: err }));
+  .then(() => {
+    req.session.cart = []; // Clear the cart
+  })
+  .catch(err => res.status(500).json({error: err }));
+  res.render('receiptPage', {orderData : order})
 });
 
-app.get('/restaurant/receipt', (request,response) => {
-  response.render('receiptPage')
-});
+// app.get('/restaurant/receipt', (request,response) => {
+  
+//   response.render('receiptPage')
+// });
 
 app.use((request,response) => { 
   response.status(404).send('<h1>Error</h1>')

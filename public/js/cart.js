@@ -17,17 +17,19 @@ const removeFromCart = (menuItemId) => {
 
 const confirmOrder = () => {
   fetch('/restaurant/order/confirm', {method: 'POST', headers: {'Content-Type': 'application/json'}})
-  .then(response => response.json())
-  .then(data => {
-    if (data.success) {
-      // Redirect to success page or display confirmation message
-      document.location.href = '/restaurant/receipt';
-    } else {
-      alert('There was an error confirming your order. Please try again.');
-    }
+  .then(result => {
+    console.log(result);
   })
   .catch(error => {
     console.error('Error:', error);
     alert('There was an error confirming your order. Please try again.');
   });
 };
+
+// .then(data => {
+  //   if (data.success) {
+  //     // Redirect to success page or display confirmation message
+  //   } else {
+  //     alert('There was an error confirming your order. Please try again.');
+  //   }
+  // })

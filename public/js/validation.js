@@ -13,6 +13,10 @@ const validation = () => {
         e.preventDefault(); // Stop form submission
         displayErrorMessageByID("number_err", "Phone Number should not be more than 10 characters");
         return;      
+      } else if(number.length < 10){
+        e.preventDefault(); // Stop form submission
+        displayErrorMessageByID("number_err", "Phone Number should not be less than 10 characters");
+        return;      
       } else if(!valid) {
         // IF Statement that checks whether the phone number matches the pattern
         e.preventDefault(); // Stop form submission
@@ -20,7 +24,7 @@ const validation = () => {
         return;
       }
     });
-});
+  });
 };
 
 function displayErrorMessageByID(elementID, message){  // function thats return an Error Message 
