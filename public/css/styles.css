@@ -13,8 +13,8 @@ html {
     display: flex;
     flex-direction: column;
     width: 80%;
-    margin: 20px auto;
-    margin-top: 150px;
+    margin-top: 25px;
+    margin-left: 25px;
     align-items: center;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
     padding: 20px;
@@ -47,6 +47,79 @@ html {
 
 
 
+
+
+
+
+
+
+.cardd {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-top: 150px;
+    margin-left: 25px;
+    align-items: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--bg-primary);
+    border: 2px solid black;
+    transition: transform 0.3s ease-in-out;
+}
+
+.cardd:hover {
+    transform: scale(1.09);
+}
+
+#Image {
+    width: 200px;
+    box-shadow: 0 0 20px rgba(105, 105, 105, 0.8);
+    border-radius: 10px;
+}
+
+
+.cardd img {
+    max-width: 100%; /* Ensures image is not larger than its container */
+    height: auto; /* Maintains the aspect ratio */
+    margin-bottom: 10px; /* Keeps space below the image */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8); /* Existing shadow for depth */
+    border-radius: 5px; /* Rounded corners as per your design */
+}
+
+
+.cardd button{
+    background-color: var(--bg-secondary);
+    margin: 10px;
+    padding: 20px;
+    width: 60%;
+    font-size: larger;
+}
+
+.cardd button:hover{
+    background-color: rgb(226, 221, 221);
+}
+
+.cardd a{
+    text-decoration: none;
+    color: black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Ensure that this class matches the class used in your HTML */
 .restaurant-navbar {
     background-color: var(--primary-color); /* Adjust this variable if necessary */
@@ -74,6 +147,9 @@ html {
     font-size: 1.5em;
 }
 
+.restaurant-navbar a{
+    text-decoration: none;
+}
 
 
 
@@ -103,7 +179,9 @@ html {
     font-size: 1.5em;
 }
 
-
+.cafes-navbar a{
+    text-decoration:none ;
+}
 
 
 
@@ -247,6 +325,24 @@ body, html {
     padding-top: 50px; /* Offset for navbar */
 }
 
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 3;
+    }
+}
+.fade-in {
+    animation: fadeIn 3s ease-out forwards; /* Changed from 2s to 3s */
+}
+
+
+
+
+
 .logo {
     max-height: 250px; /* Increase the size of the logo */
     width: auto; /* Maintain aspect ratio */
@@ -263,6 +359,7 @@ h2 { /* Specific styles for the slogan */
     font-style: italic; /* Italicize the slogan */
     opacity: 0.8; /* Slightly see-through for aesthetic effect */
 }
+
 
 .content-section {
     background-color: white; /* Set background to white */
@@ -397,6 +494,109 @@ h2 { /* Specific styles for the slogan */
     font-size: 18px;
     font-weight: bold;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Menu page specific header */
+.menu-page-header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--primary-color); /* Ensure this variable is set correctly */
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensures header stays above other content */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-bottom: 25px;
+}
+
+.menu-page-header .logo {
+    height: 65px;
+    width: 65px;
+    margin-right: 20px;
+}
+
+.menu-page-header h1 {
+    font-size: 25px; /* Adjust based on your preference */
+}
+
+
+.menu-page-header a{
+    text-decoration: none;
+}
+
+/* Specific style for the cart button on the menu page */
+.menu-cart-button {
+    position: fixed;
+    top: 70px; /* Adjust based on header height */
+    right: 20px; /* Position towards the top-right corner */
+    z-index: 1001; /* Ensure it's visible above other content */
+}
+
+.menu-cart-button button {
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.menu-cart-button button a {
+    color: white; /* Ensures text is white */
+    text-decoration: none;
+}
+
+.menu-cart-button button:hover {
+    background-color: rgb(226, 221, 221);
+    color: var(--bg-secondary);
+}
+
+
+.category {
+    text-align: center;
+    font-size: 24px;
+    margin-top: 120px;
+    color: var(--text-secondary);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Ensures responsive layout */
+    gap: 20px;  /* Consistent spacing between cards */
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: var(--bg-primary);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+    margin-bottom: 22px;
+}
+
 
 
 
@@ -645,8 +845,9 @@ input::-webkit-inner-spin-button {
 
 .category{
     text-align: center;
-    background-color:var(--bg-primary);
+    background-color:rgba(151, 132, 22, 0.952);
     border: solid var(--text-secondary);
+    color: white;
 }
 
 

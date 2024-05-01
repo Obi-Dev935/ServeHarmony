@@ -13,15 +13,14 @@
 
 
 <header class="cafes-navbar">
-        <img src="/images/logo.png" alt="ServeHarmony Logo" class="logo">
-        <h1>ServeHarmony - Cafes List</h1>
-    </header>
-
+    <a href="/ChoicePage"><img src="/images/logo.png" alt="ServeHarmony Logo" class="logo"></a>
+    <a href="/ChoicePage"> <h1>ServeHarmony - Cafes List</h1></a>
+</header>
 
     <main class="grid">
         <% if(cafes && cafes.length> 0){ %>
             <% cafes.forEach(cafe=> { %>
-                <div class="card">
+                <div class="cardd">
                     <a href=""><img src="<%= cafe.img %>" alt="<%= cafe.alt %>" id="Image"></a>
                     <h2><%= cafe.name %></h2>
                     <p><strong>Open Hours: </strong><%= cafe.open %></p>

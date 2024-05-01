@@ -13,8 +13,8 @@
 </head>
 <body>
     <header class="restaurant-navbar">
-        <img src="/images/logo.png" alt="ServeHarmony Logo" class="logo">
-        <h1>ServeHarmony - Restaurants List</h1>
+        <a href="/ChoicePage"><img src="/images/logo.png" alt="ServeHarmony Logo" class="logo"></a>
+        <a href="/ChoicePage"><h1>ServeHarmony - Restaurants List</h1></a>
     </header>
     
 
@@ -23,7 +23,7 @@
     <main class="grid">
         <% if(restaurants && restaurants.length> 0){ %>
             <% restaurants.forEach(restaurant=> { %>
-                <div class="card">
+                <div class="cardd">
                     <a href="/restaurant/menu/<%= restaurant.id %>"><img src="/images/<%= restaurant.image %>" id="Image"></a>
                     <h2><%= restaurant.name %></h2>
                     <p><strong>Open Hours: </strong><%= restaurant.openHours %></p>
