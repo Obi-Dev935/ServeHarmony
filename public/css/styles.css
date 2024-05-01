@@ -14,6 +14,7 @@ html {
     flex-direction: column;
     width: 80%;
     margin: 20px auto;
+    margin-top: 150px;
     align-items: center;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
     padding: 20px;
@@ -33,11 +34,81 @@ html {
     border-radius: 10px;
 }
 
-.cafe img, .restaurant img {
-    
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-    border-radius: 5px;
+
+.card img {
+    max-width: 100%; /* Ensures image is not larger than its container */
+    height: auto; /* Maintains the aspect ratio */
+    margin-bottom: 10px; /* Keeps space below the image */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8); /* Existing shadow for depth */
+    border-radius: 5px; /* Rounded corners as per your design */
 }
+
+
+
+
+
+/* Ensure that this class matches the class used in your HTML */
+.restaurant-navbar {
+    background-color: var(--primary-color); /* Adjust this variable if necessary */
+    width: 100%;
+    position:absolute;
+    top: 0;
+    left: 0;
+    color: white; /* Assuming you want white text */
+    padding: 10px 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Optional: Adds depth to the navbar */
+}
+
+
+.restaurant-navbar .logo {
+    height: 67px;
+    width: 67px;
+    margin-right: 10px;
+}
+
+.restaurant-navbar h1 {
+    font-size: 1.5em;
+}
+
+
+
+
+.cafes-navbar {
+    background-color: var(--primary-color); /* Adjust this variable if necessary */
+    width: 100%;
+    position:absolute;
+    top: 0;
+    left: 0;
+    color: white; /* Assuming you want white text */
+    padding: 10px 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Optional: Adds depth to the navbar */
+}
+
+
+.cafes-navbar .logo {
+    height: 67px;
+    width: 67px;
+    margin-right: 10px;
+}
+
+.cafes-navbar h1 {
+    font-size: 1.5em;
+}
+
+
+
+
+
+
+
 
 .page-wrapper {
     background-color: var(--bg-secondary);
