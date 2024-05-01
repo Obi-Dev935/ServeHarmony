@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.5">
     <title>Cafe Page</title>
-    <link rel="stylesheet" href="/css/styles.css"> <!-- Link to the style.css file -->
+    <link rel="stylesheet" href="/css/styles.css">
+    <!-- GSAP and ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
 </head>
 <body class="grid">
     <% if(cafes && cafes.length> 0){ %>
@@ -19,5 +22,22 @@
             </div>
         <% }) %>
     <% } %>
+    <script>
+        // Animation script
+        document.addEventListener('DOMContentLoaded', function () {
+            gsap.registerPlugin(ScrollTrigger);
+            const cards = gsap.utils.toArray(".card");
+            cards.forEach(card => {
+                const anim = gsap.fromTo(card, 
+                    { autoAlpha: 0, y: 100, x: -100, rotate: -10 },
+                    { duration: 0.6, autoAlpha: 1, y: 0, x: 0, rotate: 0 }
+                );
+                ScrollTrigger.create({
+                    trigger: card,
+                    animation: anim,
+                });
+            });
+        });
+    </script>
 </body>
 </html>

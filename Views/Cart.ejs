@@ -6,31 +6,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Cart</title>
   <link rel="stylesheet" href="/css/styles.css">
+  <!-- GSAP and ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
 </head>
 <body>
   <main>
-      <div>
-        <% if (cart && cart.length > 0){ %>
-          <ul>
-            <% cart.forEach(item => { %>
-            <li class="card">
-              <img src="/images/<%= item.itemImg %>" id="Image">
-              <h3><%= item.itemName %></h3>
-              <p>Price: <%= item.itemPrice * item.quantity %> SAR</p>
-              <p>quantity: <%= item.quantity %></p>
-              <button onclick="removeFromCart('<%= item.menuItemId %>')">Remove</button>
-            </li>
+    <div>
+      <% if (cart && cart.length > 0){ %>
+        <ul>
+          <% cart.forEach(item => { %>
+          <li class="card">
+            <img src="/images/<%= item.itemImg %>" alt="<%= item.itemName %>" id="Image">
+            <h3><%= item.itemName %></h3>
+            <p>Price: <%= item.itemPrice * item.quantity %> SAR</p>
+            <p>Quantity: <%= item.quantity %></p>
+            <button onclick="removeFromCart('<%= item.menuItemId %>')">Remove</button>
+          </li>
           <% }); %>
         </ul>
-        <% } %>
-        <button onclick="confirmOrder(this)">Confirm Order</button>
-      </div>
-    </section>
+      <% } %>
+      <button onclick="confirmOrder(this)">Confirm Order</button>
+    </div>
   </main>
+  <script>
+    // Animation script
+    document.addEventListener('DOMContentLoaded', function () {
+        gsap.registerPlugin(ScrollTrigger);
+        const cards = gsap.utils.toArray(".card");
+        cards.forEach(card => {
+            const anim = gsap.fromTo(card, 
+                { autoAlpha: 0, y: 100, x: -100, rotate: -10 },
+                { duration: 0.6, autoAlpha: 1, y: 0, x: 0, rotate: 0 }
+            );
+            ScrollTrigger.create({
+                trigger: card,
+                animation: anim,
+            });
+        });
+    });
+  </script>
   <script src="/js/cart.js"></script>
 </body>
 </html>
-      <!-- <div class="cart">
-        <i class="bi bi-cart2"></i>
-        <div id="cartAmount" class="cartAmount">0</div>
-      </div> -->
