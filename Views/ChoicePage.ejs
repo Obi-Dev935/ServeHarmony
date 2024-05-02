@@ -3,16 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Choose Your Option</title>
-    <link rel="stylesheet" href="/css/styles.css"> <!-- Link to the style.css file -->
+    <title>ServeHarmony</title>
+    <link rel="stylesheet" href="/css/styles.css"> <!-- Link to your CSS file -->
 </head>
-<body class="page-wrapper">
-    <div class="content-box">
-        <h1 class="title">Choose Your Option</h1>
-        <ul class="option-list">
-            <li class="option-item"><a class="option-link" href="/restaurantPage">Restaurants</a></li>
-            <li class="option-item"><a class="option-link" href="/cafePage">Cafes</a></li>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Features</a></li>
+            <li><a href="#make-order">Make Order</a></li>
         </ul>
-    </div>
+    </nav>
+
+    <!-- Main Background Section with Logo and Title -->
+    <section class="logo-background">
+        <img src="/images/logo.png" alt="ServeHarmony Logo" class="logo fade-in">
+        <h1 class="fade-in">ServeHarmony</h1>
+        <h2 class="fade-in">DINE WITH EASE, ENJOY WITH HARMONY</h2>
+    </section>
+
+    <!-- Main content sections -->
+    <section id="about" class="content-section">
+        <div class="about-us-card">
+            <h2>About Us</h2>
+            <p>ServeHarmony is redefining the dining landscape in Saudi Arabia. Our pioneering platform enhances every meal out with effortless order tracking and advanced table reservations. Seamlessly blending technology with convenience, ServeHarmony not only speeds up your service but also champions sustainability by cutting down paper use. Dive into a new era of dining where efficiency meets sophistication—experience the harmony.</p>
+        </div>
+    </section>
+
+    <section id="services" class="content-section">
+        <h2>Features</h2>
+        <div class="service-cards-container">
+            <div class="service-card">
+                <img src="/images/order-tracking.png" alt="Order Tracking">
+                <h3>Effortless Order Status Tracking</h3>
+                <p>Track your dining experience in real time with our innovative order status tracking system.</p>
+            </div>
+            <div class="service-card">
+                <img src="/images/table-reservation.png" alt="Table Reservations">
+                <h3>Advanced Table Reservations</h3>
+                <p>Reserve your table ahead of time with our easy-to-use table reservation feature.</p>
+            </div>
+            <div class="service-card">
+                <img src="/images/eco-friendly.png" alt="Eco-Friendly Practices">
+                <h3>Sustainability</h3>
+                <p>Enjoy dining that respects the planet by minimizing paper use and enhancing efficiency.</p>
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="make-order" class="content-section">
+        <h2>Make Order</h2>
+        <div class="options-container">
+            <a class="option-link" href="/restaurantPage">
+                <div class="option-card">
+                    <img src="/images/restaurant-icon.png" alt="Restaurants">
+                    <span>Restaurants</span>
+                </div>
+            </a>
+            <a class="option-link" href="/cafePage">
+                <div class="option-card">
+                    <img src="/images/cafe-icon.png" alt="Cafes">
+                    <span>Cafes</span>
+                </div>
+            </a>
+        </div>
+    </section>
+    
+
+    <!-- Footer (if needed) -->
+    <footer>
+        <p>&copy; 2024 ServeHarmony. All rights reserved.</p>
+    </footer>
 </body>
 </html>

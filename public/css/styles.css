@@ -1,6 +1,5 @@
 :root {
     --bg-primary: #F5F5F5;
-    --bg-secondary: #D2B48C;
     --text-primary: white;
     --text-secondary: black;
 }
@@ -14,7 +13,8 @@ html {
     display: flex;
     flex-direction: column;
     width: 80%;
-    margin: 20px auto;
+    margin-top: 25px;
+    margin-left: 25px;
     align-items: center;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
     padding: 20px;
@@ -34,11 +34,159 @@ html {
     border-radius: 10px;
 }
 
-.cafe img, .restaurant img {
-    
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-    border-radius: 5px;
+
+.card img {
+    max-width: 100%; /* Ensures image is not larger than its container */
+    height: auto; /* Maintains the aspect ratio */
+    margin-bottom: 10px; /* Keeps space below the image */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8); /* Existing shadow for depth */
+    border-radius: 5px; /* Rounded corners as per your design */
 }
+
+
+
+
+
+
+
+
+
+
+
+.cardd {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-top: 150px;
+    margin-left: 25px;
+    align-items: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--bg-primary);
+    border: 2px solid black;
+    transition: transform 0.3s ease-in-out;
+}
+
+.cardd:hover {
+    transform: scale(1.09);
+}
+
+#Image {
+    width: 200px;
+    box-shadow: 0 0 20px rgba(105, 105, 105, 0.8);
+    border-radius: 10px;
+}
+
+
+.cardd img {
+    max-width: 100%; /* Ensures image is not larger than its container */
+    height: auto; /* Maintains the aspect ratio */
+    margin-bottom: 10px; /* Keeps space below the image */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8); /* Existing shadow for depth */
+    border-radius: 5px; /* Rounded corners as per your design */
+}
+
+
+.cardd button{
+    background-color: var(--bg-secondary);
+    margin: 10px;
+    padding: 20px;
+    width: 60%;
+    font-size: larger;
+}
+
+.cardd button:hover{
+    background-color: rgb(226, 221, 221);
+}
+
+.cardd a{
+    text-decoration: none;
+    color: black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Ensure that this class matches the class used in your HTML */
+.restaurant-navbar {
+    background-color: var(--primary-color); /* Adjust this variable if necessary */
+    width: 100%;
+    position:absolute;
+    top: 0;
+    left: 0;
+    color: white; /* Assuming you want white text */
+    padding: 10px 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Optional: Adds depth to the navbar */
+}
+
+
+.restaurant-navbar .logo {
+    height: 67px;
+    width: 67px;
+    margin-right: 10px;
+}
+
+.restaurant-navbar h1 {
+    font-size: 1.5em;
+}
+
+.restaurant-navbar a{
+    text-decoration: none;
+}
+
+
+
+.cafes-navbar {
+    background-color: var(--primary-color); /* Adjust this variable if necessary */
+    width: 100%;
+    position:absolute;
+    top: 0;
+    left: 0;
+    color: white; /* Assuming you want white text */
+    padding: 10px 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Optional: Adds depth to the navbar */
+}
+
+
+.cafes-navbar .logo {
+    height: 67px;
+    width: 67px;
+    margin-right: 10px;
+}
+
+.cafes-navbar h1 {
+    font-size: 1.5em;
+}
+
+.cafes-navbar a{
+    text-decoration:none ;
+}
+
+
+
+
+
 
 .page-wrapper {
     background-color: var(--bg-secondary);
@@ -100,6 +248,459 @@ html {
     padding: 20px; 
     margin: auto;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:root {
+    --primary-color: #313030; /* Red background */
+    --text-color: white;
+}
+
+body, html {
+    padding: 0;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar {
+    width: 100%;
+    position:absolute; /* Keeps the navbar at the top of the viewport */
+    top: 0;
+    left: 0;
+    background-color: transparent; /* Transparent background as in the earlier design */
+    color: white; /* White text color */
+    text-align: center;
+    padding: 20px 0;
+}
+
+.navbar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar ul li {
+    margin: 0 20px; /* Space between the menu items */
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 20px; /* Adjust the font size as per your design */
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.navbar ul li a:hover, .navbar ul li a:focus {
+    color: #ccc; /* Light grey on hover for better visibility */
+    border-bottom: 2px solid white; /* Underline effect on hover */
+}
+
+
+
+.logo-background {
+    background-color: var(--primary-color);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 50px; /* Offset for navbar */
+}
+
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 3;
+    }
+}
+.fade-in {
+    animation: fadeIn 3s ease-out forwards; /* Changed from 2s to 3s */
+}
+
+
+
+
+
+.logo {
+    max-height: 250px; /* Increase the size of the logo */
+    width: auto; /* Maintain aspect ratio */
+}
+
+h1, h2 { /* Style for the website name and the slogan */
+    margin: 0.5em 0 0.2em; /* Tighten up the spacing to bring them closer */
+    color: white; /* Ensure the text is white for visibility */
+    font-size: 2em; /* Increase the size of the website name if needed */
+}
+
+h2 { /* Specific styles for the slogan */
+    font-size: 1.5em; /* Smaller than the title */
+    font-style: italic; /* Italicize the slogan */
+    opacity: 0.8; /* Slightly see-through for aesthetic effect */
+}
+
+
+.content-section {
+    background-color: white; /* Set background to white */
+    color: black; /* Set text color to black */
+    padding: 50px 20px;
+    text-align: center;
+    min-height: 500px; /* Minimum height for content sections */
+}
+
+
+.content-section h2 {
+    color: black; /* Set text color to black */
+    font-size: 24px; /* Adjust font size as needed */
+    margin-bottom: 20px; /* Add some space below the title */
+}
+
+
+.about-us-card {
+    max-width: 800px;
+    margin: 40px auto;
+    margin-top: 150px;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3); /* Increased shadow size and opacity */
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.about-us-card h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.about-us-card p {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+
+
+
+
+
+
+.service-cards-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.service-card {
+    flex-basis: 30%; /* Adjust based on how many cards per row */
+    margin: 10px;
+    padding: 20px;
+    background: white;
+    border: 5px solid transparent; /* Added for hover effect */
+    border-radius: 15px;
+    box-shadow: 0 16px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.5s ease, border-color 0.3s ease; /* Smooth transitions for hover effects */
+    cursor: pointer; /* Indicates the card is interactive */
+}
+
+.service-card:hover {
+    transform: translateY(-5px); /* Slightly raises the card */
+    box-shadow: 10 25px 35px rgba(0, 0, 0, 0.932); /* Enhanced shadow for a lifted effect */
+    border-color: #ccc; /* Change border color on hover */
+}
+
+.service-card img {
+    width: 100px; /* Maintaining your image size settings */
+    height: auto;
+    margin-bottom: 15px; /* Space between the image and the title */
+}
+
+.service-card h3 {
+    color: #333; /* Dark grey for titles */
+    margin-bottom: 10px; /* Space between the title and the paragraph */
+}
+
+.service-card p {
+    color: #666; /* Light grey for text */
+    font-size: 14px; /* Legible font size */
+    line-height: 1.5; /* Adequate line height for readability */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.options-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px; /* Adjust the space between options */
+    
+}
+
+.option-link {
+    text-decoration: none; /* Remove underline from links */
+}
+
+.option-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    padding: 3px;
+    border-radius: 10px;
+}
+
+
+
+.option-card img {
+    width: 170px; /* Adjust based on your design preference */
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.option-card span {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Menu page specific header */
+.menu-page-header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--primary-color); /* Ensure this variable is set correctly */
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensures header stays above other content */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-bottom: 25px;
+}
+
+.menu-page-header .logo {
+    height: 65px;
+    width: 65px;
+    margin-right: 20px;
+}
+
+.menu-page-header h1 {
+    font-size: 25px; /* Adjust based on your preference */
+}
+
+
+.menu-page-header a{
+    text-decoration: none;
+}
+
+/* Specific style for the cart button on the menu page */
+.menu-cart-button {
+    position: fixed;
+    top: 70px; /* Adjust based on header height */
+    right: 20px; /* Position towards the top-right corner */
+    z-index: 1001; /* Ensure it's visible above other content */
+}
+
+.menu-cart-button button {
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.menu-cart-button button a {
+    color: white; /* Ensures text is white */
+    text-decoration: none;
+}
+
+.menu-cart-button button:hover {
+    background-color: rgb(226, 221, 221);
+    color: var(--bg-secondary);
+}
+
+
+.category {
+    text-align: center;
+    font-size: 24px;
+    margin-top: 120px;
+    color: var(--text-secondary);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Ensures responsive layout */
+    gap: 20px;  /* Consistent spacing between cards */
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: var(--bg-primary);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+    margin-bottom: 22px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.option-link {
+    background-color: white;
+    color: var(--primary-color);
+    padding: 10px 30px;
+    border-radius: 10px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .phone-number-page {
     display: flex;
@@ -244,8 +845,9 @@ input::-webkit-inner-spin-button {
 
 .category{
     text-align: center;
-    background-color:var(--bg-primary);
+    background-color:rgba(151, 132, 22, 0.952);
     border: solid var(--text-secondary);
+    color: white;
 }
 
 
