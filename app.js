@@ -91,35 +91,35 @@ app.post('/cart/add', (request,response) => {
   response.status(200).json({ success: true, cart });
 });
 
-app.post('/cart/remove', (req, res) => {
-  const { menuItemId } = req.body;
-  req.session.cart = req.session.cart.filter(item => item.menuItemId !== menuItemId);
-  res.json({ success: true });
+app.post('/cart/remove', (request, res) => {
+  const { menuItemId } = request.body;
+  request.session.cart = request.session.cart.filter(item => item.menuItemId !== menuItemId);
+  request.json({ success: true });
 });
 
-app.post('/restaurant/order/confirm', (req, res) => {
-  const cart = req.session.cart;
+app.post('/restaurant/order/confirm', (request, res) => {
+  const cart = request.session.cart;
   if (!cart || cart.length === 0) {
     console.log("cart is empty");
   }
   const order = new Order({
     menuitems: cart,
-    restaurantId: req.session.restaurantid,
-    phoneNumber: req.session.phoneNumber,
+    restaurantId: request.session.restaurantid,
+    phoneNumber: request.session.phoneNumber,
     orderDate: new Date()
   });
   order.save()
   .then(() => {
-    req.session.cart = []; // Clear the cart
+    request.session.cart = []; // Clear the cart
+    res.redirect(`/restaurant/receipt/`)
   })
   .catch(err => res.status(500).json({error: err }));
-  res.render('receiptPage', {orderData : order})
 });
 
-// app.get('/restaurant/receipt', (request,response) => {
+app.get('/restaurant/receipt', (request,response) => {
+  response.render('receiptPage', {order})
   
-//   response.render('receiptPage')
-// });
+});
 
 app.use((request,response) => { 
   response.status(404).send('<h1>Error</h1>')
