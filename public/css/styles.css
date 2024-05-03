@@ -12,40 +12,110 @@ html {
 .card {
     display: flex;
     flex-direction: column;
-    width: 80%;
-    margin-top: 25px;
-    margin-left: 25px;
+    width: 300px; /* Consistent width for all cards */
+    margin: 20px auto;
     align-items: center;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Smoother shadow */
     padding: 20px;
-    border-radius: 10px;
-    background-color: var(--bg-primary);
-    border: 2px solid black;
-    transition: transform 0.3s ease-in-out;
+    border-radius: 10px; /* Rounded corners for the card */
+    background-color: #f5f5f5; /* Light grey background */
+    border: none; /* Removing the border */
+    transition: transform 0.3s ease-in-out, box-shadow 0.5s ease;
+    cursor: pointer;
 }
 
 .card:hover {
     transform: scale(1.09);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Deeper shadow on hover */
 }
-
-#Image {
-    width: 200px;
-    box-shadow: 0 0 20px rgba(105, 105, 105, 0.8);
-    border-radius: 10px;
-}
-
 
 .card img {
-    max-width: 100%; /* Ensures image is not larger than its container */
-    height: auto; /* Maintains the aspect ratio */
-    margin-bottom: 10px; /* Keeps space below the image */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8); /* Existing shadow for depth */
-    border-radius: 5px; /* Rounded corners as per your design */
+    width: 100%; /* Full width inside the card */
+    border-radius: 10px; /* Rounded corners for the image */
+    margin-bottom: 10px;
+}
+
+.card h3, .card p {
+    text-align: center;
+    color: #333; /* Dark grey text for better readability */
+}
+
+.card p {
+    margin-top: 5px;
+}
+
+.card button {
+    background-color: #FFA500; /* Orange background for the button */
+    color: white; /* White text inside the button */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-top: 10px; /* Space above the button */
+    width: 80%; /* Making the button a bit wider */
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.card button:hover {
+    background-color: #e69500; /* Darker orange on hover */
 }
 
 
 
 
+
+
+
+.cart-cardd{
+    display: flex;
+    flex-direction: column;
+    width: 300px; /* Consistent width for all cards */
+    margin: 20px auto;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Smoother shadow */
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners for the card */
+    background-color: #f5f5f5; /* Light grey background */
+    border: none; /* Removing the border */
+    transition: transform 0.3s ease-in-out, box-shadow 0.5s ease;
+    cursor: pointer;
+
+}
+.cart-cardd:hover {
+    transform: scale(1.09);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Deeper shadow on hover */
+}
+
+.cart-cardd img {
+    width: 100%; /* Full width inside the card */
+    border-radius: 10px; /* Rounded corners for the image */
+    margin-bottom: 10px;
+}
+
+.cart-cardd h3, .cart-cardd p {
+    text-align: center;
+    color: #333; /* Dark grey text for better readability */
+}
+
+.cart-cardd p {
+    margin-top: 5px;
+}
+
+.cart-cardd button {
+    background-color: #FFA500; /* Orange background for the button */
+    color: white; /* White text inside the button */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-top: 10px; /* Space above the button */
+    width: 80%; /* Making the button a bit wider */
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.cart-cardd button:hover {
+    background-color: #e69500; /* Darker orange on hover */
+}
 
 
 
@@ -56,54 +126,61 @@ html {
 .cardd {
     display: flex;
     flex-direction: column;
-    width: 80%;
-    margin-top: 150px;
-    margin-left: 25px;
+    width: 300px; /* Consistent width for all cards */
+    margin: 50px auto;
     align-items: center;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Smoother shadow */
     padding: 20px;
-    border-radius: 10px;
-    background-color: var(--bg-primary);
-    border: 2px solid black;
-    transition: transform 0.3s ease-in-out;
+    border-radius: 10px; /* Rounded corners for the card */
+    background-color: #f5f5f5; /* Light grey background */
+    border: none; /* Removing the border */
+    transition: transform 0.3s ease-in-out, box-shadow 0.5s ease;
+    cursor: pointer;
+    position: relative; /* Needed for the pseudo-element */
 }
 
 .cardd:hover {
-    transform: scale(1.09);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Deeper shadow on hover */
 }
-
-#Image {
-    width: 200px;
-    box-shadow: 0 0 20px rgba(105, 105, 105, 0.8);
-    border-radius: 10px;
-}
-
 
 .cardd img {
-    max-width: 100%; /* Ensures image is not larger than its container */
-    height: auto; /* Maintains the aspect ratio */
-    margin-bottom: 10px; /* Keeps space below the image */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8); /* Existing shadow for depth */
-    border-radius: 5px; /* Rounded corners as per your design */
+    width: 100%; /* Full width inside the card */
+    border-radius: 10px; /* Rounded corners for the image */
+    margin-bottom: 10px;
 }
 
-
-.cardd button{
-    background-color: var(--bg-secondary);
-    margin: 10px;
-    padding: 20px;
-    width: 60%;
-    font-size: larger;
+.cardd h2, .cardd p {
+    text-align: center;
+    color: black/* Dark grey text for better readability */
 }
 
-.cardd button:hover{
-    background-color: rgb(226, 221, 221);
+.cardd p {
+    margin-top: 5px;
+}
+
+.cardd button {
+    background-color: #FFA500; /* Orange background for the button */
+    color: white; /* White text inside the button */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-top: 10px; /* Space above the button */
+    width: 80%; /* Making the button a bit wider */
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.cardd button:hover {
+    background-color: #e69500; /* Darker orange on hover */
 }
 
 .cardd a{
     text-decoration: none;
-    color: black;
+    color: white;
 }
+
+
 
 
 
@@ -153,19 +230,51 @@ html {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .cafes-navbar {
     background-color: var(--primary-color); /* Adjust this variable if necessary */
     width: 100%;
     position:absolute;
     top: 0;
     left: 0;
+    right: 0;
     color: white; /* Assuming you want white text */
-    padding: 10px 0;
-    z-index: 1000;
+    padding: 10px;
+    z-index: 1000px;
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Optional: Adds depth to the navbar */
+}
+
+
+body {
+    overflow-x: hidden;  // This hides any horizontal overflow
+}
+
+
+.cardd:first-of-type {
+    margin-top: 150px; /* Adds space above the first card only */
+}
+.cardd:nth-of-type(2) {
+    margin-top: 150px;
+}
+
+.cardd:nth-of-type(3) {
+    margin-top: 150px;
 }
 
 
@@ -449,6 +558,11 @@ h2 { /* Specific styles for the slogan */
     line-height: 1.5; /* Adequate line height for readability */
 }
 
+.service-card:nth-child(3){
+    margin-top: 50px;
+    margin-bottom: 35px;
+}
+
 
 
 
@@ -500,6 +614,9 @@ h2 { /* Specific styles for the slogan */
 
 
 
+#cart-Image{
+    size:150px;
+}
 
 
 
@@ -584,7 +701,7 @@ h2 { /* Specific styles for the slogan */
     gap: 20px;  /* Consistent spacing between cards */
 }
 
-.card {
+/* .card {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -595,7 +712,7 @@ h2 { /* Specific styles for the slogan */
     border-radius: 10px;
     transition: transform 0.3s ease-in-out;
     margin-bottom: 22px;
-}
+} */
 
 
 
@@ -767,7 +884,7 @@ color: red;
     text-align: center;
 }
 
-.card button{
+/*.card button{
     background-color: var(--bg-secondary);
     margin: 10px;
     padding: 20px;
@@ -782,7 +899,7 @@ color: red;
 .card a{
     text-decoration: none;
     color: black;
-}
+} */
 
 
 .popup {
@@ -845,9 +962,9 @@ input::-webkit-inner-spin-button {
 
 .category{
     text-align: center;
-    background-color:rgba(151, 132, 22, 0.952);
-    border: solid var(--text-secondary);
-    color: white;
+    color: black;
+    font-size: 30px;
+    font-family:'Times New Roman', Times, serif;
 }
 
 
