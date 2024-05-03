@@ -9,7 +9,7 @@ const validation = () => {
         e.preventDefault(); // Stop form submission
         displayErrorMessageByID("number_err", "Phone Number should not be left empty!");
         return;      
-      } else if(number.length > 10 || number.length < 10){
+      } else if(number.length > 10){
         e.preventDefault(); // Stop form submission
         displayErrorMessageByID("number_err", "Phone Number should not be more than 10 characters");
         return;      

@@ -4,7 +4,8 @@ const addtoCart = (button) => {
   let itemName = button.getAttribute('data-name');
   let itemPrice = button.getAttribute('data-price');
 
-  fetch('/cart/add', {method: "POST", headers: {'Content-Type': 'application/json', },body: JSON.stringify({ menuItemId, itemImg, itemName, itemPrice, quantity: 1 }),})
+  fetch('/cart/add', {method: "POST", headers: {'Content-Type': 'application/json', },
+  body: JSON.stringify({ menuItemId, itemImg, itemName, itemPrice, quantity: 1 }),})
   .then(response => response.json())
   .then(data => {
     if (data.success) {
