@@ -11,6 +11,7 @@ body{
     align-items: center;
     min-height: 100vh;
     background: whitesmoke;
+    transition: 1s;
 }
 
 .slide{
@@ -67,6 +68,7 @@ body{
     box-shadow: 0 5px 25px rgba(0,0,0,0.15); 
     transition: 0.5s;
     transition-delay: 0.5;
+    overflow: hidden;
 }
 
 .slide .formBx{
@@ -102,7 +104,6 @@ body{
 }
 
 .slide .formBx .form.signinform{
-    top: -100%;
     transition-delay: 0s;
 }
 
