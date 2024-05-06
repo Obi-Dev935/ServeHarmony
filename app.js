@@ -7,6 +7,9 @@ app.use(express.static('public'));
 const session = require('express-session')
 const MongoDBStore = require('connect-mongodb-session')(session)
 
+const appController = require("./controllers/appController");
+const authMiddleware = require("./middleware/auth");
+
 let sessionStore = new MongoDBStore({
   uri: process.env.MONGO_URI,
   collection: 'mySessions'
@@ -34,11 +37,11 @@ const cafes = require('./dataCafe')
 const restaurants = require('./model/menu');
 const Order = require('./model/order');
 
-app.get('/',(request,response) => {
-  response.render('PhonePage')
-});
+app.post("/register", appController.register_post);
+app.get("/login", authMiddleware.isLogged, appController.login_get);
+app.post("/login", appController.login_post);
 
-app.get('/ChoicePage',(request,response) => {
+app.get('/',(request,response) => {
   request.session.phoneNumber = request.query.phoneNumber
   response.render('ChoicePage')
 });

@@ -262,7 +262,7 @@ html {
 
 
 body {
-    overflow-x: hidden;  // This hides any horizontal overflow
+    overflow-x: hidden;  /* This hides any horizontal overflow */
 }
 
 

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="/css/loginPage.css"> <!-- Link to the style.css file -->
+</head>
+<body> 
+    <div class="container">
+        <div class="box signin">
+            <h2>Already Have an Account ?</h2>
+            <button class="signinBtn">Sign in</button>
+        </div>
+        <div class="box signup">
+            <h2>Dont Have an Account ?</h2>
+            <button class="signupBtn">Sign up</button>
+        </div> 
+        <div class="formBx">
+            <div class="form signinform">
+                <h3>Sign In</h3>
+                <form action="/ChoicePage">     
+                    <input type="number" id="phoneNumber" name="phoneNumber" placeholder="Enter your phone number">
+                    <input type="password" placeholder="Password">
+                    <p id="number_err" class="error"></p>
+                    <input type="submit" value="Login">
+                </form> 
+            </div>
+
+            <div class="form signupform">
+                <h3>Sign Up</h3>
+                <form action="/ChoicePage">     
+                    <input type="number" id="phoneNumber" name="phoneNumber" placeholder="Enter your phone number">
+                    <input type="password" placeholder="Password">
+                    <p id="number_err" class="error"></p>
+                    <input type="submit" value="Register">
+                </form> 
+            </div>
+        </div>                   
+    </div>
+    <!-- <script src="/js/validation.js">
+    </script> -->
+    <script>
+    const signinBtn = document.querySelector('.signinBtn');
+    const signupBtn = document.querySelector('.signupBtn');
+    const body = document.querySelector('body');
+
+    signupBtn.onclick = function(){
+        body.classList.add('slide');
+    }
+
+    signinBtn.onclick = function(){
+        body.classList.remove('slide');
+    }
+    </script>
+</body>
+</html>
