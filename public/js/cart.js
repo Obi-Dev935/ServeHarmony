@@ -12,7 +12,6 @@ const removeFromCart = (menuItemId) => {
       }
     })
     .catch(error => console.error('Error:', error));
-
 };
 
 const confirmOrder = () => {

@@ -26,7 +26,7 @@ const login_post = async (req, res) => {
 
   req.session.isAuth = true;
   req.session.username = user.username;
-  res.redirect("/dashboard");
+  res.redirect("/");
 };
 
 const register_post = async (req, res) => {
@@ -35,7 +35,7 @@ const register_post = async (req, res) => {
 
   if (user) {
     req.session.error = "User already exists";
-    return res.redirect("/register");
+    return res.redirect("/login");
   }
 
   const hashPsw = await bcrypt.hash(password, 12);
@@ -45,7 +45,7 @@ const register_post = async (req, res) => {
   });
 
   await user.save();
-  res.redirect("/login");
+  res.redirect("/");
 };
 
 module.exports = {login_get, login_post, register_post};

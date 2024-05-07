@@ -36,6 +36,7 @@ app.use(express.json())
 const cafes = require('./dataCafe')
 const restaurants = require('./model/menu');
 const Order = require('./model/order');
+const order = require('./model/order');
 
 app.post("/register", appController.register_post);
 app.get("/login", authMiddleware.isLogged, appController.login_get);
@@ -51,7 +52,9 @@ app.get('/restaurantPage',(request,response) => {
   .then(data => {
     response.render('restaurantPage', {restaurants: data})
   })
-  .catch()
+  .catch(err => {
+    console.log(err);
+  })
 });
 
 app.get('/cafePage',(request,response) => {
@@ -82,15 +85,12 @@ app.post('/cart/add', (request,response) => {
   const cart = request.session.cart
   const existingItem = cart.find(item => item.menuItemId === menuItemId);
   if (existingItem) {
-    // If it exists, increment the quantity
-    existingItem.quantity += quantity;
+    existingItem.quantity += quantity; // If it exists, increment the quantity
   } else {
-    // Otherwise, add a new item to the cart with quantity 1
-    cart.push({ menuItemId,itemName, itemPrice, itemImg, quantity});
+    cart.push({ menuItemId,itemName, itemPrice, itemImg, quantity}); // Otherwise, add a new item to the cart with quantity 1
   }
 
-  request.session.cart = cart;
-  console.log(cart);
+  
   response.status(200).json({ success: true, cart });
 });
 
@@ -114,14 +114,18 @@ app.post('/restaurant/order/confirm', (request, res) => {
   order.save()
   .then(() => {
     request.session.cart = []; // Clear the cart
-    res.redirect(`/restaurant/receipt/`)
   })
   .catch(err => res.status(500).json({error: err }));
 });
 
 app.get('/restaurant/receipt', (request,response) => {
-  response.render('receiptPage', {order})
-  
+  Order.find()
+  .then((data) => {
+    response.render('orders', { order: data });
+  })
+  .catch((err) => {
+    response.render('orders', { order: [] });
+  });
 });
 
 app.use((request,response) => { 
@@ -139,10 +143,7 @@ mongoose.connect(process.env.MONGO_URI)
     console.log(error);
   })
   
-  
-// app.get('/Register/v1/',(request,response) => {  
-//     response.render('Register', {title: 'Add products', message: '', error: ''})
-// });
+
   
 // app.post('/Register/v1/', (req, res) => {
 //   const name = req.body.name;
@@ -172,9 +173,6 @@ mongoose.connect(process.env.MONGO_URI)
 //     });
 // });
   
-// app.get('/Addproduct/v1/',(request,response) => {
-//   response.render('Addproduct', {title: 'Add products', message: '', error: ''})
-// });
 
 // app.post('/Addproduct/v1/', (request, response) => {
 //   const name = request.body.name;

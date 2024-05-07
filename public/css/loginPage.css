@@ -15,14 +15,14 @@ body{
 }
 
 .slide{
-    background: rgb(169, 110, 0);
+    background: rgba(255, 255, 255, 0.9);
 }
 
 .container{
     position: relative;
     width: 800px;
     height: 400px;
-    background: rgba(0,0,0,0.125);
+    background: rgba(0, 0, 0, 0.125);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -41,7 +41,7 @@ body{
 }
 
 .container .box h2{
-    color: white;
+    color: rgb(0, 0, 0);
     font-size: 1.2rem;
     font-weight: 500;
     margin-bottom: 10px;
@@ -51,18 +51,19 @@ body{
     cursor: pointer;
     padding: 10px 20px;
     background: #fff;
-    color: #333;
+    color: #000000;
     font-size: 16px;
     font-weight: 500;
     border: none;
     outline: none;
+    border-radius: 20px;
 }
 
 .formBx{
     position: absolute;
     left: 50px;
     width: 350px;  
-    height: 400px;
+    height: 480px;
     background: white;
     z-index: 1000;
     box-shadow: 0 5px 25px rgba(0,0,0,0.15); 
@@ -133,7 +134,7 @@ body{
 }
 
 .formBx .form form input[type="submit"]{
-    background: aqua;
+    background: rgb(1, 1, 1);
     border: none;
     color: white;
     cursor: pointer;
@@ -141,6 +142,6 @@ body{
 }
 
 .formBx .signupform form input[type="submit"]{
-    background: red;
+    background: rgb(0, 0, 0);
 }
 

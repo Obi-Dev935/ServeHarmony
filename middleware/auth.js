@@ -9,7 +9,7 @@ const isAuth = (req, res, next) => {
   
 const isLogged = (req, res, next) => {
     if (req.session.isAuth) {
-      res.redirect("/dashboard");
+      res.redirect("/");
     } else {
       next();
     }
