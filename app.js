@@ -46,6 +46,23 @@ app.get('/',(request,response) => {
   request.session.phoneNumber = request.query.phoneNumber
   response.render('ChoicePage')
 });
+app.get('/TableReservation', (req, res) => {
+  // Extract restaurantId from query parameters
+  const restaurantId = req.query.restaurantId; // Obtain restaurantId from the query string
+  // Render the view and pass restaurantId to the EJS template
+  res.render('TableReservation', { restaurantId: restaurantId });
+});
+
+
+// Route to handle the table reservation form submission
+app.post('/submitReservation', (req, res) => {
+  // Process the reservation data here, such as saving it to a database
+  console.log(req.body); // Logs the form data to the server console
+
+  // Redirect to the restaurant menu page using the restaurantId
+  res.redirect(`/restaurant/menu/${req.body.restaurantId}`);
+});
+
 
 app.get('/restaurantPage',(request,response) => {
   restaurants.find()

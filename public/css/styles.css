@@ -766,45 +766,29 @@ footer {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.reservation-form {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+.reservation-form input, .reservation-form select, .reservation-form textarea, .reservation-form button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+    border-radius: 4px;
+}
+.reservation-form button {
+    background-color: #cda45e;
+    color: var(--text-secondary);
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 10px 20px;
+}
+.reservation-form button:hover {
+    background-color: #d4b06b;
+}
 
 
 
