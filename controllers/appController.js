@@ -25,7 +25,7 @@ const login_post = async (req, res) => {
   }
 
   req.session.isAuth = true;
-  req.session.username = user.username;
+  req.session.phoneNumber = user.phoneNumber;
   res.redirect("/");
 };
 

@@ -23,7 +23,8 @@
   <main>
     <section>
       <h1>Order Receipt</h1>
-      <h2>Order ID: <%= order._id %></h2>
+      <h3>Order ID: <%= order._id %></h3>
+      <h3>Order Status: <%= order.status %></h3>
       <h3>Details:</h3>
         <% if (order && order.menuitems) { %>
             <ul class="grid">

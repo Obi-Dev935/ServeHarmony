@@ -459,7 +459,7 @@ body, html {
 
 h1, h2 { /* Style for the website name and the slogan */
     margin: 0.5em 0 0.2em; /* Tighten up the spacing to bring them closer */
-    color: white; /* Ensure the text is white for visibility */
+    color: rgb(192, 191, 191); /* Ensure the text is white for visibility */
     font-size: 2em; /* Increase the size of the website name if needed */
 }
 

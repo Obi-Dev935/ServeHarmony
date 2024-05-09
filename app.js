@@ -45,22 +45,20 @@ app.get('/',(request,response) => {
   response.render('ChoicePage')
 });
 
-app.get('/TableReservation/:id', (request, response) => {
+app.get('/TableReservation/:id',authMiddleware.isAuth,(request, response) => {
   const restaurantId = request.params.id;
   response.render('TableReservation', { restaurantId: restaurantId });
 });
 
 
-app.post('/submitReservation', (request, response) => {
+app.post('/submitReservation',authMiddleware.isAuth, (request, response) => {
   // Process the reservation data here, such as saving it to a database
   console.log(request.body); 
-
-  // Redirect to the restaurant menu page using the restaurantId
   response.redirect(`/restaurant/menu/${request.body.restaurantId}`);
 });
 
 
-app.get('/restaurantPage',(request,response) => {
+app.get('/restaurantPage',authMiddleware.isAuth,(request,response) => {
   restaurants.find()
   .then(data => {
     response.render('restaurantPage', {restaurants: data})
@@ -74,7 +72,7 @@ app.get('/cafePage',(request,response) => {
   response.render('cafePage', {cafes:cafes})
 });
 
-app.get('/restaurant/menu/:id',authMiddleware.isLogged, (request,response) => {
+app.get('/restaurant/menu/:id',authMiddleware.isAuth, (request,response) => {
   const restaurantid = request.params.id;
   restaurants.findById(restaurantid)
     .then((data) => {
@@ -85,12 +83,12 @@ app.get('/restaurant/menu/:id',authMiddleware.isLogged, (request,response) => {
     .catch((err) => {response.render('menu', { restaurants: [] });});
 });
 
-app.get('/restaurant/cart', authMiddleware.isLogged, (request,response) => {
+app.get('/restaurant/cart', authMiddleware.isAuth, (request,response) => {
   const cart = request.session.cart;
   response.render('cart', {cart})
 });
 
-app.post('/cart/add', (request,response) => {
+app.post('/cart/add', authMiddleware.isAuth, (request,response) => {
   const { menuItemId, itemName, itemPrice, itemImg, quantity } = request.body; 
   const cart = request.session.cart
   const existingItem = cart.find(item => item.menuItemId === menuItemId);
@@ -110,10 +108,11 @@ app.post('/cart/remove', (request, res) => {
   request.json({ success: true });
 });
 
-app.post('/restaurant/order/confirm', authMiddleware.isLogged, (request, res) => {
+app.post('/restaurant/order/confirm', authMiddleware.isAuth, (request, res) => {
   const cart = request.session.cart;
   if (!cart || cart.length === 0) {
     console.log("cart is empty");
+    return res.status(400).send("Cart is empty");
   }
   const order = new Order({
     menuitems: cart,
@@ -124,21 +123,22 @@ app.post('/restaurant/order/confirm', authMiddleware.isLogged, (request, res) =>
   order.save()
   .then((savedOrder) => {
     request.session.cart = []; // Clear the cart
-    res.redirect('/restaurant/receipt/' + savedOrder._id);
+    res.json({ success: true, orderId: savedOrder._id });
   })
   .catch(err => res.status(500).json({error: err }));
 });
 
-app.get('/restaurant/receipt/:orderId',authMiddleware.isLogged, (request,response) => {
-  Order.find(request.params.orderId)
+app.get('/restaurant/receipt/:orderrId', authMiddleware.isAuth, (request, response) => {
+  Order.findById(request.params.orderrId)
   .then((data) => {
     if (!data) {
       return response.status(404).send('Order not found');
     }
     response.render('orders', { order: data });
+    console.log(data);
   })
   .catch((err) => {
-    response.render('orders', { order: [] });
+    response.status(500).render('orders', { order: [] });
   });
 });
 
@@ -221,4 +221,5 @@ mongoose.connect(process.env.MONGO_URI)
 //       console.log(`Couldnt search for products ${err}`);
 //       response.render('Search', {name: 'Search Product', products: [], error: err});
 //     })
+// });
 // });

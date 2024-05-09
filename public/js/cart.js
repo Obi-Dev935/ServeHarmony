@@ -16,8 +16,14 @@ const removeFromCart = (menuItemId) => {
 
 const confirmOrder = () => {
   fetch('/restaurant/order/confirm', {method: 'POST', headers: {'Content-Type': 'application/json'}})
-  .then(result => {
-    console.log(result);
+  .then(response => response.json()) // Convert the response to JSON
+  .then(data => {
+    if (data.success) {
+      console.log('Order confirmed:', data);
+      window.location.href = `/restaurant/receipt/${data.orderId}`; // Redirect to the receipt page
+    } else {
+      alert('Failed to confirm order. Please try again.');
+    }
   })
   .catch(error => {
     console.error('Error:', error);
