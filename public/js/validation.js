@@ -34,7 +34,6 @@ function displayErrorMessageByID(elementID, message){  // function thats return 
 
 validation();
 
-module.exports = validation;
 // function submitForm() {
 //     window.location.href = '/ChoicePage'; // Updated to reflect your desired redirect URL
 // }

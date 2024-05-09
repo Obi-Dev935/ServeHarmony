@@ -36,31 +36,27 @@ app.use(express.json())
 const cafes = require('./dataCafe')
 const restaurants = require('./model/menu');
 const Order = require('./model/order');
-const order = require('./model/order');
 
 app.post("/register", appController.register_post);
 app.get("/login", authMiddleware.isLogged, appController.login_get);
 app.post("/login", appController.login_post);
 
 app.get('/',(request,response) => {
-  request.session.phoneNumber = request.query.phoneNumber
   response.render('ChoicePage')
 });
-app.get('/TableReservation', (req, res) => {
-  // Extract restaurantId from query parameters
-  const restaurantId = req.query.restaurantId; // Obtain restaurantId from the query string
-  // Render the view and pass restaurantId to the EJS template
-  res.render('TableReservation', { restaurantId: restaurantId });
+
+app.get('/TableReservation/:id', (request, response) => {
+  const restaurantId = request.params.id;
+  response.render('TableReservation', { restaurantId: restaurantId });
 });
 
 
-// Route to handle the table reservation form submission
-app.post('/submitReservation', (req, res) => {
+app.post('/submitReservation', (request, response) => {
   // Process the reservation data here, such as saving it to a database
-  console.log(req.body); // Logs the form data to the server console
+  console.log(request.body); 
 
   // Redirect to the restaurant menu page using the restaurantId
-  res.redirect(`/restaurant/menu/${req.body.restaurantId}`);
+  response.redirect(`/restaurant/menu/${request.body.restaurantId}`);
 });
 
 
@@ -78,7 +74,7 @@ app.get('/cafePage',(request,response) => {
   response.render('cafePage', {cafes:cafes})
 });
 
-app.get('/restaurant/menu/:id',(request,response) => {
+app.get('/restaurant/menu/:id',authMiddleware.isLogged, (request,response) => {
   const restaurantid = request.params.id;
   restaurants.findById(restaurantid)
     .then((data) => {
@@ -86,14 +82,11 @@ app.get('/restaurant/menu/:id',(request,response) => {
       request.session.cart = [];
       response.render('menu', { restaurants: data });
     })
-    .catch((err) => {
-      response.render('menu', { restaurants: [] });
-    });
+    .catch((err) => {response.render('menu', { restaurants: [] });});
 });
 
-app.get('/restaurant/cart', (request,response) => {
+app.get('/restaurant/cart', authMiddleware.isLogged, (request,response) => {
   const cart = request.session.cart;
-  console.log(cart);
   response.render('cart', {cart})
 });
 
@@ -117,7 +110,7 @@ app.post('/cart/remove', (request, res) => {
   request.json({ success: true });
 });
 
-app.post('/restaurant/order/confirm', (request, res) => {
+app.post('/restaurant/order/confirm', authMiddleware.isLogged, (request, res) => {
   const cart = request.session.cart;
   if (!cart || cart.length === 0) {
     console.log("cart is empty");
@@ -129,15 +122,19 @@ app.post('/restaurant/order/confirm', (request, res) => {
     orderDate: new Date()
   });
   order.save()
-  .then(() => {
+  .then((savedOrder) => {
     request.session.cart = []; // Clear the cart
+    res.redirect('/restaurant/receipt/' + savedOrder._id);
   })
   .catch(err => res.status(500).json({error: err }));
 });
 
-app.get('/restaurant/receipt', (request,response) => {
-  Order.find()
+app.get('/restaurant/receipt/:orderId',authMiddleware.isLogged, (request,response) => {
+  Order.find(request.params.orderId)
   .then((data) => {
+    if (!data) {
+      return response.status(404).send('Order not found');
+    }
     response.render('orders', { order: data });
   })
   .catch((err) => {
