@@ -667,8 +667,9 @@ h2 { /* Specific styles for the slogan */
 }
 
 .menu-cart-button button {
+
     padding: 10px 20px;
-    background-color: var(--primary-color);
+    background-color: #FFA500;   
     color: white;
     border: none;
     border-radius: 5px;
@@ -766,97 +767,163 @@ footer {
 }
 
 
-.reservation-form {
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
-}
-.reservation-form input, .reservation-form select, .reservation-form textarea, .reservation-form button {
-    width: 100%;
-    padding: 10px;
-    margin-top: 8px;
-    margin-bottom: 16px;
-    border-radius: 4px;
-}
-.reservation-form button {
-    background-color: #cda45e;
-    color: var(--text-secondary);
-    border: none;
-    cursor: pointer;
-    text-transform: uppercase;
-    font-weight: bold;
-    padding: 10px 20px;
-}
-.reservation-form button:hover {
-    background-color: #d4b06b;
+
+
+
+
+
+
+
+
+
+
+
+.reservation-body{
+    background-color: var(--primary-color) ;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-.phone-number-page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
-    background-color: var(--bg-secondary); /* Use the primary background color for consistency */
-    
-}
-
-.phone-number-page .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; /* Added to center the content vertically */
-    padding: 2rem;
-    background-color: var(--text-primary);
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    width: 90%;
-    max-width: 400px;
-    margin: auto;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-}
-
-.phone-number-page h1 {
-    color: var(--bg-secondary); 
-    margin-bottom: 2rem;    
-}
-
-.phone-number-page input[type="tel"] {
-    padding: 10px;
-    width: 95%;
-    border-radius: 5px;
-    border: 1px solid var(--bg-secondary);
-    background-color: var(--bg-primary);
-    color: var(--text-secondary);
-}
-
-.phone-number-page button {
-    margin-top: 8px; 
-    padding: 15px 30px;
-    width: 100%; 
+.reservation-header {
+    text-align: center;
+    padding: 10px 0;
     color: white;
-    background-color: var(--bg-secondary);
+}
+
+.reservation-logo {
+    max-height: 120px; /* Adjust based on your preference */
+    width: auto;
+    margin-bottom: 2px; /* Space between the logo and the title */
+}
+
+.reservation-form {
+    background-color: #f5f5f5; /* Light background for the form */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 20px auto;
+    color: black; /* Ensuring the text is readable */
+}
+
+.reservation-form input,
+.reservation-form select,
+.reservation-form textarea,
+.reservation-form button {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 2px solid #ccc;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.reservation-form button {
+    background-color:  var(--primary-color); /* Orange button to draw attention */
+    color: white;
     border: none;
     border-radius: 5px;
+    padding: 10px 20px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
-.phone-number-page button:hover{
-    background-color: rgb(226, 221, 221);
+.reservation-form button:hover {
+    background-color: #e69500; /* Darker orange on hover */
 }
+
+@media (max-width: 600px) {
+    .reservation-form {
+        padding: 15px;
+    }
+    .reservation-form input,
+    .reservation-form select,
+    .reservation-form textarea,
+    .reservation-form button {
+        padding: 8px;
+    }
+}
+
+
+.reservation-form input:hover,
+.reservation-form select:hover,
+.reservation-form textarea:hover,
+.reservation-form input:focus,
+.reservation-form select:focus,
+.reservation-form textarea:focus {
+    border-color: #888; /* Darker border on hover/focus for better visibility */
+}
+
+
+.reservation-form .form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+
+.reservation-form .form-column {
+    flex: 1; /* Makes each column take up equal space */
+    padding: 0 10px; /* Adds spacing between columns */
+}
+
+/* Specific styling for the textarea and button to take full width */
+.reservation-form .form-row:last-child .form-column,
+.reservation-form textarea,
+.reservation-form button {
+    flex: 0 0 100%; /* Ensures they don't share space with others */
+}
+
+
+
+
+
+
+.cart-page-header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--primary-color); /* Ensure this variable is set correctly */
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensures header stays above other content */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-bottom: 25px;
+}
+
+.cart-page-header .logo {
+    height: 65px;
+    width: 65px;
+    margin-right: 20px;
+}
+
+.cart-page-header h1 {
+    font-size: 25px; /* Adjust based on your preference */
+}
+
+
+.cart-page-header a{
+    text-decoration: none;
+}
+
+.cart-cardd{
+    margin-top: 150px;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 #number_err{
     color: red;

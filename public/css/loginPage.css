@@ -63,7 +63,7 @@ body{
     position: absolute;
     left: 50px;
     width: 350px;  
-    height: 480px;
+    height: 400px;
     background: white;
     z-index: 1000;
     box-shadow: 0 5px 25px rgba(0,0,0,0.15); 

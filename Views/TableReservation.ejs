@@ -1,43 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
- <!-- style sheets -->
- <link rel="stylesheet" href="css-reset.css">
- <link rel="stylesheet" href="/css/styles.css">
-<title>Table Reservation</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css"> <!-- Path to your main CSS file -->
+    <title>Table Reservation - ServeHarmony</title>
 </head>
-<body>
-    <div class="card reservation-form"> <!-- Using "card" class to apply your CSS styles -->
+<body class="reservation-body">
+    <header class="reservation-header">
+        <img src="/images/logo.png" alt="ServeHarmony Logo" class="reservation-logo">
+        <h1>Table Reservation</h1>
+    </header>
+    <div class="reservation-form">
         <form action="/submitReservation" method="post">
-            <!-- Hidden input to pass the restaurant ID, make sure to pass this data from the server-side route -->
             <input type="hidden" name="restaurantId" value="<%= restaurantId %>">
-
-            <label for="name">Your full name?</label>
-            <input type="text" id="name" name="name" placeholder="Write your name here..." required>
-
-            <label for="people">How many people?</label>
-            <select id="people" name="people" required>
-                <option value="1">1 person</option>
-                <option value="2">2 people</option>
-                <option value="3">3 people</option>
-                <option value="4">4 people</option>
-                <option value="5">5 people</option>
-                <option value="6">6 people</option>
-                <option value="7">7 people</option>
-                <option value="8">8 people</option>
-            </select>
-
-            <label for="date">What date?</label>
-            <input type="date" id="date" name="date" required>
-
-            <label for="time">What time?</label>
-            <input type="time" id="time" name="time" required>
-
-            <label for="requests">Any special requests? (optional)</label>
-            <textarea id="requests" name="requests" placeholder="Please enter any special requests here..." rows="4"></textarea>
-
+                <div class="form-row">
+                <div class="form-column">
+                    <label for="name">Enter Your Full Name: *</label>
+                    <input type="text" id="name" name="name" placeholder="Write your name here..." required>
+                </div>
+                <div class="form-column">
+                    <label for="people">Choose Number of People: *</label>
+                    <select id="people" name="people" required>
+                        <option value="1">1 person</option>
+                        <option value="2">2 people</option>
+                        <option value="3">3 people</option>
+                        <option value="4">4 people</option>
+                        <option value="5">5 people</option>
+                        <option value="6">6 people</option>
+                        <option value="7">7 people</option>
+                        <option value="8">8 people</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-column">
+                    <label for="date">Choose the Date: *</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div class="form-column">
+                    <label for="time">Choose the Appropriate Time: *</label>
+                    <input type="time" id="time" name="time" required>
+                </div>
+            </div>
+            <div class="form-column">
+                <label for="requests">Any special requests? (optional)</label>
+                <textarea id="requests" name="requests" placeholder="Please enter any special requests here..." rows="4"></textarea>
+            </div>
             <button type="submit">Submit</button>
         </form>
     </div>
