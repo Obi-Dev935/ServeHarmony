@@ -22,7 +22,7 @@ sessionStore.on('error', function(error){
 app.use(session({
   secret: process.env.SESSION_SECRET,
   cookie: {
-    maxAge: 1000 * 60 * 60,
+    maxAge: 1000 * 60,
   },
   saveUninitialized: true,
   resave: true,
@@ -83,9 +83,9 @@ app.get('/restaurantPage', authMiddleware.isAuth, (req, res) => {
       name: { $regex: new RegExp(searchQuery, 'i') }
   }).then(data => {
       if (req.headers.accept.includes('application/json')) {
-          res.json(data);  // Send JSON data if requested by AJAX
+          res.json(data); 
       } else {
-          res.render('restaurantPage', { restaurants: data }); // Traditional render for full page requests
+          res.render('restaurantPage', { restaurants: data }); 
       }
   }).catch(err => {
       console.error(err);
