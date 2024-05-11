@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <!-- <script src="/js/reservationList.js" defer></script> If you need any client-side JavaScript -->
+    <title>Table Reservations</title>
+</head>
+<body>
+
+    <main>
+        <h1>Table Reservations</h1>
+        <% if (reservations.length > 0) { %>
+        <table>
+            <thead>
+                <tr>
+                    <th>Customer Name</th>
+                    <th>Number of People</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Special Requests</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% reservations.forEach(reservation => { %>
+                <tr>
+                    <td><%= reservation.name %></td>
+                    <td><%= reservation.people %></td>
+                    <td><%= reservation.date.toDateString() %></td> <!-- Format date as needed -->
+                    <td><%= reservation.time %></td>
+                    <td><%= reservation.specialRequests || 'None' %></td>
+                </tr>
+                <% }); %>
+            </tbody>
+        </table>
+        <% } else { %>
+        <p>No reservations found.</p>
+        <% } %>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 ServeHarmony</p>
+    </footer>
+</body>
+</html>

@@ -36,6 +36,7 @@ app.use(express.json())
 const cafes = require('./dataCafe')
 const restaurants = require('./model/menu');
 const Order = require('./model/order');
+const Reservation = require('./model/table'); 
 
 app.post("/register", appController.register_post);
 app.get("/login", authMiddleware.isLogged, appController.login_get);
@@ -51,10 +52,27 @@ app.get('/TableReservation/:id',authMiddleware.isAuth,(request, response) => {
 });
 
 
-app.post('/submitReservation',authMiddleware.isAuth, (request, response) => {
-  // Process the reservation data here, such as saving it to a database
-  console.log(request.body); 
-  response.redirect(`/restaurant/menu/${request.body.restaurantId}`);
+app.post('/submitReservation', authMiddleware.isAuth, async (request, response) => {
+    try {
+        const { restaurantId, name, people, date, time, requests } = request.body;
+
+        const newReservation = new Reservation({
+            restaurantId,
+            name,
+            people,
+            date,
+            time,
+            specialRequests: requests
+        });
+
+        await newReservation.save();
+
+        console.log('Reservation saved:', newReservation);
+        response.redirect(`/restaurant/menu/${restaurantId}`);
+    } catch (error) {
+        console.error('Failed to save reservation:', error);
+        response.status(500).send('Failed to save reservation.');
+    }
 });
 
 
@@ -72,6 +90,17 @@ app.get('/cafePage',(request,response) => {
   response.render('cafePage', {cafes:cafes})
 });
 
+app.get('/reservedTables', async (req, res) => {
+  try {
+      // Fetch all reservations from the database
+      const reservations = await Reservation.find({}).sort({ date: -1 }); // Sorting by date, newest first
+      // Render the reservations page with the fetched data
+      res.render('reservedTables', { reservations }); 
+  } catch (error) {
+      console.error('Failed to fetch reservations:', error);
+      res.status(500).send('Unable to retrieve reservation data.');
+  }
+});
 app.get('/restaurant/menu/:id',authMiddleware.isAuth, (request,response) => {
   const restaurantid = request.params.id;
   restaurants.findById(restaurantid)
