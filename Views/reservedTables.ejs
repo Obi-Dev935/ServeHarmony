@@ -4,15 +4,13 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/reset.css" />
     <link rel="stylesheet" href="/css/styles.css" />
-    <!-- <script src="/js/reservationList.js" defer></script> If you need any client-side JavaScript -->
     <title>Table Reservations</title>
 </head>
 <body>
-
-    <main>
-        <h1>Table Reservations</h1>
+    <main class="reservations-container">
+        <h1 class="reservations-title">Table Reservations</h1>
         <% if (reservations.length > 0) { %>
-        <table>
+        <table class="reservations-table">
             <thead>
                 <tr>
                     <th>Customer Name</th>
@@ -27,7 +25,7 @@
                 <tr>
                     <td><%= reservation.name %></td>
                     <td><%= reservation.people %></td>
-                    <td><%= reservation.date.toDateString() %></td> <!-- Format date as needed -->
+                    <td><%= reservation.date.toDateString() %></td>
                     <td><%= reservation.time %></td>
                     <td><%= reservation.specialRequests || 'None' %></td>
                 </tr>
@@ -35,10 +33,9 @@
             </tbody>
         </table>
         <% } else { %>
-        <p>No reservations found.</p>
+        <p class="no-reservations">No reservations found.</p>
         <% } %>
     </main>
-
     <footer>
         <p>&copy; 2023 ServeHarmony</p>
     </footer>

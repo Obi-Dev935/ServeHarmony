@@ -76,14 +76,21 @@ app.post('/submitReservation', authMiddleware.isAuth, async (request, response) 
 });
 
 
-app.get('/restaurantPage',authMiddleware.isAuth,(request,response) => {
-  restaurants.find()
-  .then(data => {
-    response.render('restaurantPage', {restaurants: data})
-  })
-  .catch(err => {
-    console.log(err);
-  })
+app.get('/restaurantPage', authMiddleware.isAuth, (req, res) => {
+  const searchQuery = req.query.search || '';
+
+  restaurants.find({
+      name: { $regex: new RegExp(searchQuery, 'i') }
+  }).then(data => {
+      if (req.headers.accept.includes('application/json')) {
+          res.json(data);  // Send JSON data if requested by AJAX
+      } else {
+          res.render('restaurantPage', { restaurants: data }); // Traditional render for full page requests
+      }
+  }).catch(err => {
+      console.error(err);
+      res.status(500).send('Error retrieving restaurants.');
+  });
 });
 
 app.get('/cafePage',(request,response) => {
