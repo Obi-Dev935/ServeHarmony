@@ -20,14 +20,14 @@
   </header>
   
   <div class="menu-cart-button">
-    <button onclick="confirmOrder(this)">Confirm Order</button>
+    <button onclick="confirmOrder(this)" class="">Confirm Order</button>
   </div>
 
 
   <main>
     <div>
       <% if (cart && cart.length > 0){ %>
-        <ul>
+        <ul class="cart-grid">
           <% cart.forEach(item => { %>
           <li class="cart-cardd" id="cart-card">
             <img src="/images/<%= item.itemImg %>" alt="<%= item.itemName %>" id="cart-Image">

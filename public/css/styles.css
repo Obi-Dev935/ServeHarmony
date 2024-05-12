@@ -234,6 +234,15 @@ html {
 
 
 
+.cart-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+   
+}
+.cart-cardd{
+    width: 70%;
+}
+
 
 
 
@@ -1065,7 +1074,24 @@ input::-webkit-inner-spin-button {
        
     }
     .card{
-        width: 70%;
+        width: 60%;
+    }
+
+    .cart-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+       
+    }
+    .cart-cardd{
+        width: 50%;
+    }
+
+    .cart-cardd p{
+        font-size:15px;
+    }
+
+    .cart-cardd h3{
+        font-size:15px;
     }
 }
 
@@ -1079,12 +1105,32 @@ input::-webkit-inner-spin-button {
         font-size: 20px;
     }
     .card{
-        width: 70%;
+        width: 50%;
     }
 
     .card p{
         font-size:15px;
     }
+
+    .cart-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+       
+    }
+    .cart-cardd{
+        width: 50%;
+    }
+    .cart-cardd p{
+        font-size:15px;
+    }
+
+    .cart-cardd h3{
+        font-size:15px;
+    }
+    .reservation-form{
+        margin: auto;
+    }
+
 }
 
 @media only screen and (max-width: 767px) {
@@ -1100,11 +1146,34 @@ input::-webkit-inner-spin-button {
     }
     .phone-number-page .container {
       
-        width: 75%; /* Slightly wider container for small screens */
+        width: 60%; /* Slightly wider container for small screens */
         margin: auto;
 
     }
 
+
+    .reservation-form{
+        margin: 40px;
+    }
+
+    .reservation-form input{
+        margin-top: 10px;
+    }
+
+    textarea{
+        margin-top: 15px;
+    }
+
+    .dateform{
+        margin-top: 20px;
+    }
+    .reservation-form label{
+        font-size: 12px;
+    }
+
+    .Select{
+        margin-top: 10px;
+    }
     .page-wrapper {
         background-color: var(--bg-secondary);
         display: flex;
@@ -1117,10 +1186,41 @@ input::-webkit-inner-spin-button {
     }
 
     .card{
-        width: 65%;
-        padding: 10px;
+        width: 55%;
     }
+
+    .card p{
+        font-size:15px;
+    }
+
+    .card h3{
+        font-size:20px;
+    }
+
+
+
+
     
+
+    .cart-grid {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+       
+    }
+    .cart-cardd{
+        width: 40%;
+    }
+    .cart-cardd p{
+        font-size:15px;
+    }
+
+    .cart-cardd h3{
+        font-size:20px;
+    }
+.menu-cart-button{
+    margin-top: 15px;
+}
+
 }
 
 
