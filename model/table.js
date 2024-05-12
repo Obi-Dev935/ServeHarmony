@@ -7,7 +7,7 @@ const reservationSchema = new Schema({
     people: { type: Number, required: true },
     date: { type: Date, required: true },
     time: { type: String, required: true }, // Could also use Date if you include time in a Date object
-    specialRequests: { type: String, required: false }
+    specialRequests: { type: String}
 });
 
 module.exports = mongoose.model('Reservation', reservationSchema);

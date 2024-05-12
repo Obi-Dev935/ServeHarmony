@@ -12,7 +12,7 @@
         <h1>Table Reservation</h1>
     </header>
     <div class="reservation-form">
-        <form id="reservationForm" action="/submitReservation" method="post">
+        <form id="reservationForm" action="/submitReservation" method="POST">
             <input type="hidden" name="restaurantId" value="<%= restaurantId %>">
                 <div class="form-row">
                 <div class="form-column">
@@ -50,6 +50,6 @@
             <button type="submit">Submit</button>
         </form>
     </div>
-    <script src="/js/tableReservation.js" defer></script>
+    <script src="/js/tableReservation.js"></script>
 </body>
 </html>

@@ -19,16 +19,6 @@ const addtoCart = (button) => {
 };  
 
   
-// let update = (itemId) => {
-//     // You need an element with id="item_<itemId>" for each item
-//     let element = document.getElementById(`item_${itemId}`);
-//     if (element) {
-//       let search = basket.find((x) => x.id === itemId);
-//       element.innerText = search ? search.item : 0; // Update this element with the item count
-//     }
-//     // calculation();
-// };
-  
 // let calculation = () => {
 //     let cartIcon = document.getElementById("cartAmount");
 //     if (cartIcon) {

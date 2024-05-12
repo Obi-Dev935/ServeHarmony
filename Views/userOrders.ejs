@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- general meta tags -->
+  <meta charset="utf-8">
+  <meta name="author" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <main>
+        <h1>Your Orders</h1>
+        <% if (orders.length > 0) { %>
+            <ul>
+                <% orders.forEach(order => { %>
+                    <li>
+                        Order ID: <%= order._id %><br>
+                        Date: <%= order.orderDate.toDateString() %><br>
+                        Total Items: <%= order.menuitems.length %>
+                    </li>
+                <% }); %>
+            </ul>
+        <% } else { %>
+            <p>No orders found.</p>
+        <% } %>
+  </main>
+  
+</body>
+</html>

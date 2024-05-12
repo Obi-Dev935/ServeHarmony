@@ -22,7 +22,7 @@ sessionStore.on('error', function(error){
 app.use(session({
   secret: process.env.SESSION_SECRET,
   cookie: {
-    maxAge: 1000 * 60,
+    maxAge: 1000 * 60 * 60,
   },
   saveUninitialized: true,
   resave: true,
@@ -99,9 +99,7 @@ app.get('/cafePage',(request,response) => {
 
 app.get('/reservedTables', async (req, res) => {
   try {
-      // Fetch all reservations from the database
       const reservations = await Reservation.find({}).sort({ date: -1 }); // Sorting by date, newest first
-      // Render the reservations page with the fetched data
       res.render('reservedTables', { reservations }); 
   } catch (error) {
       console.error('Failed to fetch reservations:', error);
@@ -176,6 +174,21 @@ app.get('/restaurant/receipt/:orderrId', authMiddleware.isAuth, (request, respon
   .catch((err) => {
     response.status(500).render('orders', { order: [] });
   });
+});
+
+app.get('/user/orders', authMiddleware.isAuth, (request, response) => {
+  const phoneNumber = request.session.phoneNumber; 
+  if (!phoneNumber) {
+    return response.status(400).send("Phone number is not available in session.");
+  }
+  Order.find({ phoneNumber: phoneNumber })
+    .then(orders => {
+      response.render('userOrders', { orders: orders });
+    })
+    .catch(err => {
+      console.error("Error fetching orders:", err);
+      response.status(500).send("Failed to retrieve orders.");
+    });
 });
 
 app.use((request,response) => { 

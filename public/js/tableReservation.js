@@ -28,17 +28,13 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             if (response.ok) {
-                const reservationDetails = await response.json();
+                const reservationDetails = await response;
                 console.log('Reservation submitted successfully:', reservationDetails);
-                alert('Reservation submitted successfully!');
-                // Redirect or update UI as needed
-            } else {
-                console.error('Failed to submit reservation:', response.statusText);
-                alert('Failed to submit reservation. Please try again.');
+                window.location.href = `/restaurant/menu/${restaurantId}`;
             }
         } catch (error) {
             console.error('Error submitting reservation:', error.message);
-            alert('Error submitting reservation. Please check your network connection and try again.');
+            console.error('Failed to submit reservation:', response.statusText);
         }
     });
 });
