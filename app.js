@@ -168,11 +168,11 @@ app.get('/restaurant/receipt/:orderrId', authMiddleware.isAuth, (request, respon
     if (!data) {
       return response.status(404).send('Order not found');
     }
-    response.render('orders', { order: data });
+    response.render('receipt', { order: data });
     console.log(data);
   })
   .catch((err) => {
-    response.status(500).render('orders', { order: [] });
+    response.status(500).render('receipt', { order: [] });
   });
 });
 
