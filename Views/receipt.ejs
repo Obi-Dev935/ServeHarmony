@@ -15,24 +15,25 @@
 
 </head>
 <body>
-  <header>
-    
-
-    
+  <header class="menu-page-header">
+    <a href="/ChoicePage"><img src="/images/logo.png" alt="ServeHarmony Logo" class="logo"></a>
+      <a href="/ChoicePage"><h1>Order Receipt</h1></a>
   </header>
   <main>
-    <section>
-      <h1>Order Receipt</h1>
-      <h3>Order ID: <%= order._id %></h3>
-      <h3>Order Status: <%= order.status %></h3>
-      <h3>Details:</h3>
+    <section class="order-receipt">
+      <h3 class="order-id">Order ID: <%= order._id %></h3>
+      <h3 class="order-status">Order Status: <%= order.status %></h3>
+      <h3 class="details-header">Details:</h3>
         <% if (order && order.menuitems) { %>
-            <ul class="grid">
+            <ul class="order-items-grid">
             <% order.menuitems.forEach(item => { %>
-                <li class="card">
-                    <img src="/images/<%= item.itemImg %>" id="Image">
-                    <h3><%= item.itemName %></h3>
-                    <p>Price: <%= item.itemPrice %> SAR</p>
+                <li class="order-item-card">
+                    <img src="/images/<%= item.itemImg %>" class="item-img" alt="<%= item.itemName %>">
+                    <div class="item-details">
+                        <h3 class="item-name"><%= item.itemName %></h3>
+                        <p class="item-price">Price: <%= item.itemPrice %> SAR</p>
+                        <p class="item-quantity">Quantity: <%= item.quantity %></p>
+                    </div>
                 </li>
             <% }); %>
             </ul>

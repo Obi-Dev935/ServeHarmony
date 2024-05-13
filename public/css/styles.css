@@ -231,6 +231,82 @@ html {
 
 
 
+.restaurant-navbar .search-container {
+    margin-left: auto; /* Aligns the search form to the right side of the navbar */
+    padding-left: 20px; /* Gives some spacing from the rest of the navbar content */
+}
+
+.restaurant-navbar .search-container form {
+    display: flex;
+    align-items: center;
+    background-color: white; /* Light background for the form */
+    border-radius: 20px; /* Rounded corners for the form */
+    overflow: hidden;
+}
+
+.restaurant-navbar .search-container input[type="text"] {
+    border: none;
+    padding: 8px 16px;
+    width: 200px; /* Fixed width for the input */
+    outline: none;
+    color: #333; /* Dark color for text input */
+    font-size: 16px;
+}
+
+.restaurant-navbar .search-container button {
+    background-color: #FFA500; /* Standout color for the button */
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.restaurant-navbar .search-container button:hover {
+    background-color: #e69500; /* Darker shade on hover */
+}
+
+
+
+.restaurant-navbar {
+    background-color: var(--primary-color);
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+    padding: 10px 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center; /* This will center the content horizontally */
+    align-items: center; /* This will center the content vertically */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.restaurant-navbar .logo, .restaurant-navbar h1 {
+    margin: 0 10px; /* Maintain some space between the logo and the title */
+}
+
+.restaurant-navbar h1 {
+    font-size: 1.5em; /* Adjust font size as necessary */
+}
+
+.restaurant-navbar a {
+    text-decoration: none;
+    color: white; /* Ensures the text color is white */
+}
+
+/* Optional: to ensure that the search container does not disrupt the centering */
+.restaurant-navbar .search-container {
+    position: absolute;
+    right: 10px; /* Positions the search form to the far right */
+    top: 50%;
+    transform: translateY(-50%); /* Vertically centers the search form */
+}
+
+
+
 
 
 
@@ -286,6 +362,19 @@ body {
 .cardd:nth-of-type(3) {
     margin-top: 150px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 .cafes-navbar .logo {
@@ -819,9 +908,147 @@ footer {
 
 
 
+.receipt{
+    margin-top: 150px;
+}
+
+
+/* Main receipt card styling for order details */
+.order-receipt {
+    background-color: #f5f5f5; /* Light grey background to match other cards */
+    width: 80%; /* Suitable width to make it look like a card */
+    max-width: 600px; /* Maximum width for better appearance on large screens */
+    margin: 50px auto; /* Center the card and add vertical space */
+    margin-top: 150px;
+    padding: 20px; /* Padding inside the card */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    text-align: center; /* Center-align the text for better readability */
+}
+
+.order-items-grid {
+    list-style-type: none; /* Remove list bullets */
+    padding: 0;
+    margin: 20px 0; /* Space above and below the grid */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center grid items */
+}
+
+.order-item-card {
+    background-color: white; /* White background for the cards */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Lighter shadow for each item */
+    border-radius: 5px;
+    margin: 10px; /* Margin around each card */
+    padding: 10px;
+    flex-basis: calc(90% - 20px); /* Each item takes half width of the container minus margin */
+    display: flex;
+    align-items: center;
+    text-align: left; /* Text aligned to the left for details */
+}
+
+.item-img {
+    width: 50px; /* Small size for the image */
+    height: auto;
+    margin-right: 10px; /* Space between the image and the text */
+}
+
+.order-item-card h3, .order-item-card p {
+    margin: 5px 0; /* Spacing for better layout */
+}
 
 
 
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 767px) {
+    .order-receipt {
+        width: 95%; /* Full width on smaller screens */
+        padding: 15px;
+    }
+
+    .order-item-card {
+        flex-basis: 100%; /* Full width for each item card on smaller screens */
+    }
+}
+
+
+.reservations-container{
+    margin-top: 150px;
+}
+
+
+
+
+.reservations-table {
+    width: 100%; /* Full width of its container */
+    border-collapse: collapse; /* Removes space between borders */
+    margin: 20px auto; /* Centers the table and adds vertical spacing */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    background-color: #fff; /* White background for readability */
+    border-radius: 10px; /* Rounded corners for the table */
+    overflow: hidden; /* Hides anything outside the border-radius */
+}
+
+.reservations-table th, .reservations-table td {
+    text-align: left; /* Align text to the left */
+    padding: 15px; /* Padding inside table cells for spacing */
+    border-bottom: 1px solid #ccc; /* Light gray border for each cell */
+    color: #333; /* Dark gray color for text for better readability */
+}
+
+.reservations-table th {
+    background-color: var(--primary-color); /* Light gray background for header */
+    color: white; /* Darker text color for headers */
+    font-size: 16px; /* Slightly larger text for headers */
+}
+
+.reservations-table tbody tr:nth-child(odd) {
+    background-color: #fafafa; /* Zebra striping for rows */
+}
+
+.reservations-table tbody tr:hover {
+    background-color: #eaeaea; /* Light gray background on hover */
+    cursor: pointer; /* Pointer cursor on row hover */
+}
+
+/* Responsive table adjustments */
+@media (max-width: 768px) {
+    .reservations-table, .reservations-table thead, .reservations-table tbody, .reservations-table th, .reservations-table td, .reservations-table tr {
+        display: block; /* Block display for mobile responsive breakdown */
+    }
+
+    .reservations-table th, .reservations-table td {
+        text-align: right; /* Aligns text to right for better mobile display */
+        padding-left: 50%; /* Moves text to right, allowing labels to show on left */
+    }
+
+    .reservations-table th {
+        position: absolute; /* Positions th absolute within block */
+        top: auto;
+        left: 6px; /* Gives a little space from the left border */
+    }
+
+    .reservations-table tr {
+        margin-bottom: 10px; /* Adds bottom margin to each 'block row' */
+    }
+
+    .reservations-table td {
+        border: none; /* Removes borders from td on mobile for cleaner look */
+        position: relative;
+        padding-left: 100px; /* Makes space for absolute positioned th */
+        text-align: left; /* Resets text alignment */
+    }
+
+    .reservations-table td:before {
+        /* Mobile view: uses pseudo-elements to show 'labels' */
+        position: absolute;
+        left: 10px;
+        width: 90px; /* Width of the label */
+        white-space: nowrap; /* Ensures the text doesn't wrap */
+        font-weight: bold; /* Bold for label emphasis */
+    }
+}
 
 
 
