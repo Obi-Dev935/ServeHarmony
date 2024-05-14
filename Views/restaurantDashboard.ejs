@@ -7,36 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Restaurant Dashboard</title>
   <link rel="stylesheet" href="/css/styles.css">
-  <script>
-    // JavaScript to toggle the display of order items
-    function toggleItems(orderId) {
-      var items = document.getElementById(orderId);
-      if (items.style.display === "none") {
-        items.style.display = "table-row";
-      } else {
-        items.style.display = "none";
-      }
-    }
-
-    // JavaScript to update order status
-    async function updateOrderStatus(orderId) {
-      try {
-        const response = await fetch(`/restaurant/updateOrderStatus/${orderId}`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        });
-        if (response.ok) {
-          location.reload(); // Reload the page to show updated status
-        } else {
-          console.error('Failed to update order status');
-        }
-      } catch (error) {
-        console.error('Error:', error);
-      }
-    }
-  </script>
 </head>
 <body>
   <header class="menu-page-header">
@@ -102,5 +72,35 @@
   <footer>
     <p>&copy; 2023 ServeHarmony</p>
   </footer>
+  <script>
+    // JavaScript to toggle the display of order items
+    function toggleItems(orderId) {
+      var items = document.getElementById(orderId);
+      if (items.style.display === "none") {
+        items.style.display = "table-row";
+      } else {
+        items.style.display = "none";
+      }
+    }
+
+    // JavaScript to update order status
+    async function updateOrderStatus(orderId) {
+      try {
+        const response = await fetch(`/restaurant/updateOrderStatus/${orderId}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+        if (response.ok) {
+          location.reload(); // Reload the page to show updated status
+        } else {
+          console.error('Failed to update order status');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    }
+  </script>
 </body>
 </html>

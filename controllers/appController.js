@@ -70,7 +70,6 @@ const update_order_status = async (req, res) => {
   try {
     const order = await Order.findById(orderId);
     if (order) {
-      // Update order status
       const statuses = ['Pending', 'Confirmed', 'Preparing', 'Order is Ready'];
       const currentStatusIndex = statuses.indexOf(order.status);
       if (currentStatusIndex < statuses.length - 1) {

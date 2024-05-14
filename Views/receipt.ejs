@@ -25,18 +25,21 @@
       <h3 class="details-header">Details:</h3>
         <% if (order && order.menuitems) { %>
             <ul class="order-items-grid">
+              <% let total = 0; %>
             <% order.menuitems.forEach(item => { %>
                 <li class="order-item-card">
                     <img src="/images/<%= item.itemImg %>" class="item-img" alt="<%= item.itemName %>">
                     <div class="item-details">
                         <h3 class="item-name"><%= item.itemName %></h3>
-                        <p class="item-price">Price: <%= item.itemPrice %> SAR</p>
+                        <p class="item-price">Price: <%= item.itemPrice * item.quantity %> SAR</p>
                         <p class="item-quantity">Quantity: <%= item.quantity %></p>
                     </div>
-                </li>
-            <% }); %>
-            </ul>
-        <% }; %>
+                  </li>
+                  <% total += item.itemPrice * item.quantity; %>
+                <% }); %>
+              </ul>
+              <p>Total: <%= total %> SAR</p>
+            <% } %>
     </section>
   </main>
   <footer>

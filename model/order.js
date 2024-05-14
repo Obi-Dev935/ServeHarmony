@@ -10,7 +10,7 @@ const ItemsSchema = new Schema({
 });
 
 const order = new Schema({
-    status: { type: String, required: true, default: 'pending' },
+    status: { type: String, required: true, default: 'Pending' },
     restaurantId: { type: String, required: true},
     orderDate: { type: Date, required: true},
     phoneNumber: { type: String},

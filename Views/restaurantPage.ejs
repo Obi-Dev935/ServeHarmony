@@ -31,7 +31,7 @@
                     <a href="/restaurant/menu/<%= restaurant._id %>"><img src="/images/<%= restaurant.image %>" alt="<%= restaurant.name %>"></a>
                     <h2><%= restaurant.name %></h2>
                     <p><strong>Open Hours: </strong><%= restaurant.openHours %></p>
-                    <p><strong>Location:</strong><%= restaurant.address %></p>
+                    <p><strong>Location: </strong><%= restaurant.address %></p>
                     <button><a href="/TableReservation/<%= restaurant._id %>?type=restaurant">Dine in</a></button>
                     <button><a href="/restaurant/menu/<%= restaurant._id %>">Take Away</a></button>
                 </div>
