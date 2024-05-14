@@ -9,6 +9,7 @@ const addtoCart = (button) => {
   .then(response => response.json())
   .then(data => {
     if (data.success) {
+      showNotification('Item added to cart');
       console.log('Item added to cart');
     } else {
       console.log('Failed to add item to cart');
@@ -18,7 +19,18 @@ const addtoCart = (button) => {
     console.error('Error:', error));
 };  
 
-  
+function showNotification(message) {
+  const notification = document.createElement('div');
+  notification.className = 'notification show';
+  notification.innerText = message;
+
+  document.body.appendChild(notification);
+
+  // Remove the notification after 3 seconds
+  setTimeout(() => {
+    notification.remove();
+  }, 3000);
+}
 // let calculation = () => {
 //     let cartIcon = document.getElementById("cartAmount");
 //     if (cartIcon) {
