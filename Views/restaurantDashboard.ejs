@@ -5,19 +5,33 @@
   <meta charset="utf-8">
   <meta name="author" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href=".css">
+  <title>Restaurant Dashboard</title>
+  <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-  <header>
-    
-    <nav>
-      
-    </nav>
-  </header>
   <main>
     <section>
       <article>
-        
+        <h1>Orders for <%= restaurant.name %></h1>
+        <ul>
+          <% orders.forEach(order => { %>
+            <li>
+              <p>Order ID: <%= order._id %></p>
+              <p>Status: <%= order.status %></p>
+              <p>Order Date: <%= order.orderDate %></p>
+              <p>Phone Number: <%= order.phoneNumber %></p>
+              <ul>
+                <% order.menuitems.forEach(item => { %>
+                  <li>
+                    <p>Item Name: <%= item.itemName %></p>
+                    <p>Item Price: <%= item.itemPrice %></p>
+                    <p>Quantity: <%= item.quantity %></p>
+                  </li>
+                <% }) %>
+              </ul>
+            </li>
+          <% }) %>
+        </ul>
       </article>
     </section>
   </main>

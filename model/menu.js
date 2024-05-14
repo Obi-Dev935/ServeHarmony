@@ -16,6 +16,7 @@ const categorySchema = new Schema({
 
 const restaurantSchema = new Schema({
   name: { type: String, required: true },
+  password: { type: String, required: true },
   image: { type: String},
   openHours: { type: String, required: true },
   address: { type: String, required: true },

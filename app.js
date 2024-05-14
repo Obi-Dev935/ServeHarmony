@@ -216,6 +216,14 @@ app.get('/user/orders', authMiddleware.isAuth, (request, response) => {
     });
 });
 
+app.get('/restaurant/dashboard', (req, res) => {
+  res.render('restaurantLogin');
+});
+
+app.post('/restaurant/dashboard', appController.login_dashboard);
+
+app.get('/restaurant/dashboard/:id',appController.render_dashboard);
+
 app.use((request,response) => { 
   response.status(404).send('<h1>Error</h1>')
 });
