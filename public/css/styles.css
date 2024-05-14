@@ -1215,6 +1215,103 @@ footer {
 
 
 
+.mainOrder {
+    padding: 30px;
+    max-width: 900px; /* Generous width for readability */
+    margin: 40px auto; /* Center the main content with more vertical space */
+    background-color: #ffffff; /* Clean white background */
+    border-radius: 15px; /* Smoother rounded corners */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12); /* More pronounced shadow for depth */
+    font-family: 'Poppins', sans-serif; /* Stylish, modern font */
+}
+
+/* Styling for the list of orders with a gradient border */
+.userOrders {
+    list-style: none;
+    padding: 0;
+    margin: 30px 0; /* More space around the list for a cleaner look */
+    margin-top: 70px;
+}
+
+.userOrders li {
+    background: linear-gradient(135deg, #ece9e6 0%, #ffffff 100%); /* Subtle gradient for list item background */
+    border-left: 4px solid #007BFF; /* Bright blue accent border */
+    padding: 20px;
+    margin-bottom: 20px; /* More space between items */
+    border-radius: 8px; /* More pronounced rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Lighter shadow for a softer look */
+    font-size: 17px;
+    color: #333;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for interactions */
+}
+
+.userOrders li:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 12px 20px rgba(0,0,0,0.15); /* Deeper shadow on hover for more impact */
+    border-left: 4px solid #FF5722; /* Change accent color on hover for dynamism */
+}
+
+/* Enhanced styling for no-orders message */
+
+
+
+/* Add a subtle animation to the background for a dynamic feel */
+@keyframes backgroundShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.mainOrder {
+    background: linear-gradient(270deg, #f8fcff, #e0f1ff);
+    background-size: 400% 400%;
+    animation: backgroundShift 15s ease infinite;
+}
+
+
+
+
+
+.toggleItems-button, .updateStatus-button  {
+    padding: 2px 3px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.toggleItems-button, .updateStatus-button {
+    background-image: linear-gradient(145deg, #969696, #948e91); /* Green gradient */
+    color: white;
+}
+
+.updateStatus-button {
+    background-image: linear-gradient(145deg, #01f13d, #fd2424); /* Green gradient */
+    color: white;
+}
+
+.toggleItems-button:hover, .updateStatus-button:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    transform: translateY(-5px);
+}
+
+/* Additional hover effects for interactive elements */
+.toggleItems-button:active, .updateStatus-button:active {
+    transform: translateY(1px);
+    box-shadow: 0 1px 15px rgba(0,0,0,0.15);
+}
+
+/* Styling for no order found message */
+.no-reservations {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+    font-size: 18px;
+}
+
 
 
 

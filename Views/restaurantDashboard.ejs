@@ -34,10 +34,10 @@
             <td><%= order.orderDate %></td>
             <td><%= order.phoneNumber %></td>
             <td>
-              <button onclick="toggleItems('<%= order._id %>')">Toggle Items</button>
+              <button onclick="toggleItems('<%= order._id %>')" class="toggleItems-button">Toggle Items</button>
             </td>
             <td>
-              <button onclick="updateOrderStatus('<%= order._id %>')">Update Status</button>
+              <button onclick="updateOrderStatus('<%= order._id %>')" class="updateStatus-button">Update Status</button>
             </td>
           </tr>
           <tr id="<%= order._id %>" style="display:none">
