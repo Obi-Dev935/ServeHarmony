@@ -1,4 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Set the minimum date to today
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+    const dd = String(today.getDate()).padStart(2, '0');
+    const minDate = `${yyyy}-${mm}-${dd}`;
+    document.getElementById('date').setAttribute('min', minDate);
+
     const reservationForm = document.getElementById('reservationForm'); // Ensure the form has this ID
 
     reservationForm.addEventListener('submit', async (event) => {
@@ -39,10 +47,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else {
                     console.error('Invalid store type.');
                 }
+            } else {
+                console.error('Failed to submit reservation:', response.statusText);
             }
         } catch (error) {
             console.error('Error submitting reservation:', error.message);
-            console.error('Failed to submit reservation:', response.statusText);
         }
     });
 });

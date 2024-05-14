@@ -224,6 +224,8 @@ app.post('/restaurant/dashboard', appController.login_dashboard);
 
 app.get('/restaurant/dashboard/:id',appController.render_dashboard);
 
+app.post('/restaurant/updateOrderStatus/:id', appController.update_order_status);
+
 app.use((request,response) => { 
   response.status(404).send('<h1>Error</h1>')
 });

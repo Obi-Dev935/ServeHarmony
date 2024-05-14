@@ -65,6 +65,29 @@ const login_dashboard = async (req, res) => {
     res.status(500).send('Internal server error');
   }
 };
+const update_order_status = async (req, res) => {
+  const orderId = req.params.id;
+  try {
+    const order = await Order.findById(orderId);
+    if (order) {
+      // Update order status
+      const statuses = ['Pending', 'Confirmed', 'Preparing', 'Order is Ready'];
+      const currentStatusIndex = statuses.indexOf(order.status);
+      if (currentStatusIndex < statuses.length - 1) {
+        order.status = statuses[currentStatusIndex + 1];
+        await order.save();
+        res.status(200).send('Order status updated');
+      } else {
+        res.status(400).send('Order is already in the final status');
+      }
+    } else {
+      res.status(404).send('Order not found');
+    }
+  } catch (error) {
+    console.error('Failed to update order status:', error);
+    res.status(500).send('Unable to update order status');
+  }
+};
 
 const render_dashboard = async (req, res) => {
   const restaurantId = req.params.id;
@@ -78,4 +101,4 @@ const render_dashboard = async (req, res) => {
   }
 };
 
-module.exports = {login_get, login_post, register_post,render_dashboard,login_dashboard};
+module.exports = {login_get, login_post, register_post,render_dashboard,login_dashboard,update_order_status};
