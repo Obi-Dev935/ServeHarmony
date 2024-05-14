@@ -8,8 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const people = document.getElementById('people').value;
         const date = document.getElementById('date').value;
         const time = document.getElementById('time').value;
-        const requests = document.getElementById('requests').value;
-        const restaurantId = document.getElementsByName('restaurantId')[0].value;
+        const specialRequests = document.getElementById('specialRequests').value;
+        const storeId = document.getElementsByName('storeId')[0].value;
+        const storeType = document.getElementsByName('storeType')[0].value;
 
         try {
             const response = await fetch('/submitReservation', {
@@ -22,15 +23,22 @@ document.addEventListener('DOMContentLoaded', () => {
                     people,
                     date,
                     time,
-                    requests,
-                    restaurantId
+                    specialRequests,
+                    storeId,
+                    storeType
                 }),
             });
 
             if (response.ok) {
                 const reservationDetails = await response;
                 console.log('Reservation submitted successfully:', reservationDetails);
-                window.location.href = `/restaurant/menu/${restaurantId}`;
+                if (storeType === 'restaurant') {
+                    window.location.href = `/restaurant/menu/${storeId}`;
+                } else if (storeType === 'cafe') {
+                    window.location.href = `/cafe/menu/${storeId}`;
+                } else {
+                    console.error('Invalid store type.');
+                }
             }
         } catch (error) {
             console.error('Error submitting reservation:', error.message);

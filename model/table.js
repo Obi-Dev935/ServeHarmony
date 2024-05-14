@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const reservationSchema = new Schema({
-    restaurantId: { type: Schema.Types.ObjectId, ref: 'Restaurant', required: true },
+    storeId: { type: Schema.Types.ObjectId,required: true },
+    storeType: { type: String, required: true },
     name: { type: String, required: true },
     people: { type: Number, required: true },
     date: { type: Date, required: true },

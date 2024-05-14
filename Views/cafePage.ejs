@@ -12,46 +12,33 @@
 
 </head>
 <body>
-
-
-<header class="cafes-navbar" id="cafenav">
-    <a href="/"><img src="/images/logo.png" alt="ServeHarmony Logo" class="logo"></a>
-    <a href="/ChoicePage"> <h1>ServeHarmony - Cafes List</h1></a>
-</header>
+    <header class="restaurant-navbar">
+        <a href="/"><img src="/images/logo.png" alt="ServeHarmony Logo" class="logo"></a>
+        <a href="/"><h1>ServeHarmony - Cafes List</h1></a>
+        <div class="search-container">
+            <form action="/cafePage" method="GET">
+                <input type="text" placeholder="Search by restaurant name..." name="search" required>
+                <button type="submit">Search</button>
+            </form>
+        </div>
+    </header>
 
     <main class="grid">
-        <% if(cafes && cafes.length> 0){ %>
-            <% cafes.forEach(cafe=> { %>
+        <% if(cafes && cafes.length > 0){ %>
+            <% cafes.forEach(cafe => { %>
                 <div class="cardd">
-                    <a href=""><img src="<%= cafe.img %>" alt="<%= cafe.alt %>" id="Image"></a>
+                    <a href="/cafe/menu/<%= cafe._id %>"><img src="/images/<%= cafe.image %>" alt="<%= cafe.name %>"></a>
                     <h2><%= cafe.name %></h2>
-                    <p><strong>Open Hours: </strong><%= cafe.open %></p>
-                    <p><strong>Location: </strong><%= cafe.location %></p>
-                    <button><a href="/restaurant/menu">Dine in</a></button>
-                    <button>Take Away</button>
+                    <p><strong>Open Hours: </strong><%= cafe.openHours %></p>
+                    <p><strong>Location:</strong><%= cafe.address %></p>
+                    <button><a href="/TableReservation/<%= cafe._id %>">Dine in</a></button>
+                    <button><a href="/restaurant/menu/<%= cafe._id %>">Take Away</a></button>
                 </div>
             <% }) %>
+        <% } else { %>
+            <p>No Cafes found.</p>
         <% } %>
-        <script>
-            // Animation script
-            document.addEventListener('DOMContentLoaded', function () {
-                gsap.registerPlugin(ScrollTrigger);
-                const cards = gsap.utils.toArray(".card");
-                cards.forEach(card => {
-                    const anim = gsap.fromTo(card, 
-                        { autoAlpha: 0, y: 100, x: -100, rotate: -10 },
-                        { duration: 0.6, autoAlpha: 1, y: 0, x: 0, rotate: 0 }
-                    );
-                    ScrollTrigger.create({
-                        trigger: card,
-                        animation: anim,
-                    });
-                });
-            });
-        </script>
-
-
     </main>
-    
+    <!-- <script src="/js/search.js"></script    -->
 </body>
 </html>
