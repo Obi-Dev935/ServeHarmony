@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Menu Page</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+    <link rel="icon" type="images/png" href="/images/favecone.png">
+
+</head>
+<body>
+    <!-- New Header Section with unique class -->
+    <header class="menu-page-header">
+      <a href="/"><img src="/images/logo.png" alt="ServeHarmony Logo" class="logo"></a>
+        <a href="/"><h1>Menu Items</h1></a>
+    </header>
+
+    <!-- Cart Button styled specifically for this page -->
+    <div class="menu-cart-button">
+        <button><a href="/restaurant/cart">View Cart</a></button>
+    </div>
+    
+    <main>
+        <section>
+            <div>
+                <% if (cafe && cafe.categories) { %>
+                <% cafe.categories.forEach(category => { %>
+                    <h2 class="category"><%= category.name %></h2>
+                    <ul class="grid">
+                        <% category.items.forEach(item => { %>
+                            <li class="card">
+                                <img src="/images/<%= item.img %>" alt="<%= item.name %>">
+                                <h3><%= item.name %></h3>
+                                <p><strong>Description: </strong><%= item.details %></p>
+                                <p><strong>Price: </strong> <%= item.price %> SAR</p>
+                                <button onclick="addtoCart(this)" data-id="<%= item.menuItemId %>" data-img="<%= item.img %>" data-name="<%= item.name %>" data-price="<%= item.price %>">Add to Cart</button>
+                            </li>
+                        <% }); %>
+                    </ul>
+                <% }); %>
+                <% }; %>
+            </div>
+        </section>
+    </main>
+    <script src="/js/script.js"></script>
+    <script src="/js/addToCart.js"></script>
+</body>
+</html>

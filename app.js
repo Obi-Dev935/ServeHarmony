@@ -33,7 +33,7 @@ app.set("view engine","ejs")
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.json())
 
-const cafes = require('./dataCafe')
+const cafes = require('./model/cafeMenu')
 const restaurants = require('./model/menu');
 const Order = require('./model/order');
 const Reservation = require('./model/table'); 
@@ -47,28 +47,29 @@ app.get('/',(request,response) => {
 });
 
 app.get('/TableReservation/:id',authMiddleware.isAuth,(request, response) => {
-  const restaurantId = request.params.id;
-  response.render('TableReservation', { restaurantId: restaurantId });
+  const storeId = request.params.id;
+  const storeType = request.query.type; // Get the type from the query parameter
+  response.render('TableReservation', { storeId: storeId, storeType: storeType });
 });
 
 
 app.post('/submitReservation', authMiddleware.isAuth, async (request, response) => {
     try {
-        const { restaurantId, name, people, date, time, requests } = request.body;
-
+        const { storeId, storeType, name, people, date, time, specialRequests } = request.body;
+        console.log("Requests: " + specialRequests);
         const newReservation = new Reservation({
-            restaurantId,
-            name,
-            people,
-            date,
-            time,
-            specialRequests: requests
-        });
+          storeId,storeType, name, people, date, time, specialRequests });
 
         await newReservation.save();
 
         console.log('Reservation saved:', newReservation);
-        response.redirect(`/restaurant/menu/${restaurantId}`);
+        if (storeType === 'restaurant') {
+          response.redirect(`/restaurant/menu/${storeId}`);
+        } else if (storeType === 'cafe') {
+          response.redirect(`/cafe/menu/${storeId}`);
+        } else {
+          response.status(400).send('Invalid store type.');
+        } 
     } catch (error) {
         console.error('Failed to save reservation:', error);
         response.status(500).send('Failed to save reservation.');
@@ -94,7 +95,21 @@ app.get('/restaurantPage', authMiddleware.isAuth, (req, res) => {
 });
 
 app.get('/cafePage',(request,response) => {
-  response.render('cafePage', {cafes:cafes})
+  const searchQuery = request.query.search || '';
+
+  cafes.find({
+      name: { $regex: new RegExp(searchQuery, 'i') }
+  }).then(data => {
+    console.log(data)
+      if (request.headers.accept.includes('application/json')) {
+        response.json(data); 
+      } else {
+        response.render('cafePage', { cafes: data }); 
+      }
+  }).catch(err => {
+      console.error(err);
+      response.status(500).send('Error retrieving restaurants.');
+  });
 });
 
 app.get('/reservedTables', async (req, res) => {
@@ -106,6 +121,7 @@ app.get('/reservedTables', async (req, res) => {
       res.status(500).send('Unable to retrieve reservation data.');
   }
 });
+
 app.get('/restaurant/menu/:id',authMiddleware.isAuth, (request,response) => {
   const restaurantid = request.params.id;
   restaurants.findById(restaurantid)
@@ -115,6 +131,17 @@ app.get('/restaurant/menu/:id',authMiddleware.isAuth, (request,response) => {
       response.render('menu', { restaurants: data });
     })
     .catch((err) => {response.render('menu', { restaurants: [] });});
+});
+
+app.get('/cafe/menu/:id',authMiddleware.isAuth, (request,response) => {
+  const cafeid = request.params.id;
+  cafes.findById(cafeid)
+    .then((data) => {
+      request.session.cafeid = cafeid;
+      request.session.cart = [];
+      response.render('cafemenuPage', { cafe: data });
+    })
+    .catch((err) => {response.render('cafemenuPage', { cafe: [] });});
 });
 
 app.get('/restaurant/cart', authMiddleware.isAuth, (request,response) => {
@@ -131,8 +158,6 @@ app.post('/cart/add', authMiddleware.isAuth, (request,response) => {
   } else {
     cart.push({ menuItemId,itemName, itemPrice, itemImg, quantity}); // Otherwise, add a new item to the cart with quantity 1
   }
-
-  
   response.status(200).json({ success: true, cart });
 });
 

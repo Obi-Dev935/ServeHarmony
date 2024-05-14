@@ -32,7 +32,7 @@
                     <h2><%= restaurant.name %></h2>
                     <p><strong>Open Hours: </strong><%= restaurant.openHours %></p>
                     <p><strong>Location:</strong><%= restaurant.address %></p>
-                    <button><a href="/TableReservation/<%= restaurant._id %>">Dine in</a></button>
+                    <button><a href="/TableReservation/<%= restaurant._id %>?type=restaurant">Dine in</a></button>
                     <button><a href="/restaurant/menu/<%= restaurant._id %>">Take Away</a></button>
                 </div>
             <% }) %>

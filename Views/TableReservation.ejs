@@ -13,7 +13,8 @@
     </header>
     <div class="reservation-form">
         <form id="reservationForm" action="/submitReservation" method="POST">
-            <input type="hidden" name="restaurantId" value="<%= restaurantId %>">
+            <input type="hidden" name="storeId" value="<%= storeId %>">
+            <input type="hidden" name="storeType" value="<%= storeType %>">
                 <div class="form-row">
                 <div class="form-column">
                     <label for="name">Enter Your Full Name: *</label>
@@ -44,8 +45,8 @@
                 </div>
             </div>
             <div class="form-column">
-                <label for="requests">Any special requests? (optional)</label>
-                <textarea id="requests" name="requests" placeholder="Please enter any special requests here..." rows="4"></textarea>
+                <label for="specialRequests">Any special requests? (optional)</label>
+                <input type="text" id="specialRequests" name="specialRequests">
             </div>
             <button type="submit">Submit</button>
         </form>
