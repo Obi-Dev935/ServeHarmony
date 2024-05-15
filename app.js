@@ -161,10 +161,10 @@ app.post('/cart/add', authMiddleware.isAuth, (request,response) => {
   response.status(200).json({ success: true, cart });
 });
 
-app.post('/cart/remove', (request, res) => {
+app.post('/cart/remove', (request, response) => {
   const { menuItemId } = request.body;
   request.session.cart = request.session.cart.filter(item => item.menuItemId !== menuItemId);
-  request.json({ success: true });
+  response.json({ success: true });
 });
 
 app.post('/restaurant/order/confirm', authMiddleware.isAuth, (request, res) => {
