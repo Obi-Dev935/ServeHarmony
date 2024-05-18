@@ -4,7 +4,7 @@
   "description": "ServeHarmony is a web-based application that enhances the traditional process of reserving tables and ordering experience in restaurants or cafes. The entire process of reserving tables, making orders and tracking order status will be done by ServeHarmony.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
@@ -17,7 +17,9 @@
     "ejs": "^3.1.10",
     "express": "^4.19.2",
     "express-session": "^1.18.0",
+    "jest": "^29.7.0",
     "mongodb": "^6.6.0",
-    "mongoose": "^8.3.3"
+    "mongoose": "^8.3.3",
+    "supertest": "^7.0.0"
   }
 }

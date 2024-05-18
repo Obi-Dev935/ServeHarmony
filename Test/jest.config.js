@@ -1,6 +1,4 @@
 module.exports = {
-    // ...
-    testEnvironment: 'jsdom',
-    // ...
+    testEnvironment: 'node',
+    setupFilesAfterEnv: ['./jest.setup.js'],
 };
-  
