@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const reservationForm = document.getElementById('reservationForm'); // Ensure the form has this ID
 
-    reservationForm.addEventListener('submit', async (event) => {
+    reservationForm.addEventListener('submit', (event) => {
         event.preventDefault();
 
         const name = document.getElementById('name').value;
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const storeType = document.getElementsByName('storeType')[0].value;
 
         try {
-            const response = await fetch('/submitReservation', {
+            const response =  fetch('/submitReservation', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             if (response.ok) {
-                const reservationDetails = await response;
+                const reservationDetails = response;
                 console.log('Reservation submitted successfully:', reservationDetails);
                 if (storeType === 'restaurant') {
                     window.location.href = `/restaurant/menu/${storeId}`;

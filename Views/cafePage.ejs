@@ -31,7 +31,7 @@
                     <h2><%= cafe.name %></h2>
                     <p><strong>Open Hours: </strong><%= cafe.openHours %></p>
                     <p><strong>Location:</strong><%= cafe.address %></p>
-                    <button><a href="/TableReservation/<%= cafe._id %>">Dine in</a></button>
+                    <button><a href="/TableReservation/<%= cafe._id %>?type=cafe">Dine in</a></button>
                     <button><a href="/restaurant/menu/<%= cafe._id %>">Take Away</a></button>
                 </div>
             <% }) %>

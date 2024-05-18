@@ -1,6 +1,10 @@
 const request = require('supertest');
 const express = require('express');
-const app = require('../app'); // Adjust the path as necessary
+const { app, server } = require('../app'); // Adjust the path as necessary
+
+afterAll(() => {
+    server.close(); // Close the server after all tests
+});
 
 describe('Test the root path', () => {
   test('It should respond with the ChoicePage', async () => {

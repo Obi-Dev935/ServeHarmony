@@ -53,14 +53,11 @@ app.get('/TableReservation/:id',authMiddleware.isAuth,(request, response) => {
 });
 
 
-app.post('/submitReservation', authMiddleware.isAuth, async (request, response) => {
+app.post('/submitReservation', authMiddleware.isAuth, (request, response) => {
     try {
         const { storeId, storeType, name, people, date, time, specialRequests } = request.body;
-        console.log("Requests: " + specialRequests);
-        const newReservation = new Reservation({
-          storeId,storeType, name, people, date, time, specialRequests });
-
-        await newReservation.save();
+        const newReservation = new Reservation({storeId,storeType, name, people, date, time, specialRequests });
+        newReservation.save();
 
         console.log('Reservation saved:', newReservation);
         if (storeType === 'restaurant') {
@@ -72,7 +69,6 @@ app.post('/submitReservation', authMiddleware.isAuth, async (request, response) 
         } 
     } catch (error) {
         console.error('Failed to save reservation:', error);
-        response.status(500).send('Failed to save reservation.');
     }
 });
 
