@@ -43,7 +43,7 @@ app.get("/login", authMiddleware.isLogged, appController.login_get);
 app.post("/login", appController.login_post);
 
 app.get('/',(request,response) => {
-  response.render('ChoicePage')
+  response.render('homePage')
 });
 
 app.get('/TableReservation/:id',authMiddleware.isAuth,(request, response) => {
