@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const reservationForm = document.getElementById('reservationForm'); // Ensure the form has this ID
 
-    reservationForm.addEventListener('submit', (event) => {
+    reservationForm.addEventListener('submit', async (event) => {
         event.preventDefault();
 
         const name = document.getElementById('name').value;
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const storeType = document.getElementsByName('storeType')[0].value;
 
         try {
-            const response =  fetch('/submitReservation', {
+            const response = await fetch('/submitReservation', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -53,11 +53,11 @@ app.get('/TableReservation/:id',authMiddleware.isAuth,(request, response) => {
 });
 
 
-app.post('/submitReservation', authMiddleware.isAuth, (request, response) => {
+app.post('/submitReservation', authMiddleware.isAuth,async (request, response) => {
     try {
         const { storeId, storeType, name, people, date, time, specialRequests } = request.body;
         const newReservation = new Reservation({storeId,storeType, name, people, date, time, specialRequests });
-        newReservation.save();
+        await newReservation.save();
 
         console.log('Reservation saved:', newReservation);
         if (storeType === 'restaurant') {
