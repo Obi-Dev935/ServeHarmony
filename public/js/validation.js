@@ -30,7 +30,7 @@ const registerValidation = () => {
   document.addEventListener("DOMContentLoaded", () => { // a function that checks the phone number input
     const form = document.getElementById("registerForm");
     form.addEventListener("submit", (e) => {
-      let number = document.getElementById("phoneNumber").value;
+      let number = document.getElementById("phoneNumberRegister").value;
       const pattern = /^05\d{8}$/;  // Phone Number pattern that must start with 05 and have a total of 10 numbers
       const valid = pattern.test(number);
       if(!number){  // IF Statement that checks whether the phone number is empty or not
