@@ -110,7 +110,7 @@ app.get('/cafePage',(request,response) => {
 
 app.get('/reservedTables', async (req, res) => {
   try {
-      const reservations = await Reservation.find({}).sort({ date: -1 }); // Sorting by date, newest first
+      const reservations = await Reservation.find({}).sort({ date: -1 });
       res.render('reservedTables', { reservations }); 
   } catch (error) {
       console.error('Failed to fetch reservations:', error);
