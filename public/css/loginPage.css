@@ -1,11 +1,11 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-body{
+body {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,11 +14,11 @@ body{
     transition: 1s;
 }
 
-.slide{
+.slide {
     background: rgba(255, 255, 255, 0.9);
 }
 
-.container{
+.container {
     position: relative;
     width: 800px;
     height: 400px;
@@ -28,7 +28,7 @@ body{
     align-items: center;
 }
 
-.container .box{
+.container .box {
     position: relative;
     width: 50%;
     height: 100%;
@@ -40,14 +40,14 @@ body{
     padding: 40px;
 }
 
-.container .box h2{
+.container .box h2 {
     color: rgb(0, 0, 0);
     font-size: 1.2rem;
     font-weight: 500;
     margin-bottom: 10px;
 }
 
-.container .box button{
+.container .box button {
     cursor: pointer;
     padding: 10px 20px;
     background: #fff;
@@ -59,7 +59,7 @@ body{
     border-radius: 20px;
 }
 
-.formBx{
+.formBx {
     position: absolute;
     left: 50px;
     width: 350px;  
@@ -68,15 +68,15 @@ body{
     z-index: 1000;
     box-shadow: 0 5px 25px rgba(0,0,0,0.15); 
     transition: 0.5s;
-    transition-delay: 0.5;
+    transition-delay: 0.5s;
     overflow: hidden;
 }
 
-.slide .formBx{
+.slide .formBx {
     left: 400px;
 }
 
-.formBx .form{
+.formBx .form {
     position: absolute;
     top: 0;
     left: 0;
@@ -87,42 +87,49 @@ body{
     align-items: center;
     transition: 0.5s;
     background: white;
+    opacity: 0;
+    pointer-events: none;
 }
 
-.formBx .form.signupform{
+.formBx .form.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.formBx .form.signupform {
     top: 100%;
     transition-delay: 0s;
 }
 
-.slide .formBx .form.signupform{
+.slide .formBx .form.signupform {
     top: 0;
     transition-delay: 1ms;
 }
 
-.formBx .from.signinform{
+.formBx .form.signinform {
     top: 0;
-    transition-delay: 1s;
+    transition-delay: 0.5s;
 }
 
-.slide .formBx .form.signinform{
+.slide .formBx .form.signinform {
     transition-delay: 0s;
 }
 
-.formBx .form form{
+.formBx .form form {
     display: flex;
     flex-direction: column;
     padding: 0 50px;
     width: 100%;
 }
 
-.formBx .form form h3{
+.formBx .form form h3 {
     font-size: 1.4rem;
     color: #333;
     margin-bottom: 20px;
     font-weight: 600;
 }
 
-.formBx .form form input{
+.formBx .form form input {
     width: 100%;
     margin-bottom: 15px;
     padding: 10px;
@@ -133,7 +140,7 @@ body{
     letter-spacing: 0.1rem;
 }
 
-.formBx .form form input[type="submit"]{
+.formBx .form form input[type="submit"] {
     background: rgb(1, 1, 1);
     border: none;
     color: white;
@@ -141,7 +148,59 @@ body{
     font-weight: 500;
 }
 
-.formBx .signupform form input[type="submit"]{
+.formBx .signupform form input[type="submit"] {
     background: rgb(0, 0, 0);
 }
 
+/* Responsive styles for mobile */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+
+    .container {
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+    }
+
+    .container .box {
+        width: 100%;
+        height: auto;
+        padding: 20px;
+    }
+
+    .formBx {
+        position: relative;
+        left: 0;
+        width: 100%;
+        height: auto;
+        box-shadow: none;
+        transition: none;
+    }
+
+    .slide .formBx {
+        left: 0;
+    }
+
+    .formBx .form {
+        position: relative;
+        width: 100%;
+        height: auto;
+        padding: 20px;
+        background: none;
+    }
+
+    .formBx .form form {
+        padding: 0 20px;
+    }
+
+    .formBx .form form h3 {
+        font-size: 1.2rem;
+    }
+
+    .container .box button {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+}
