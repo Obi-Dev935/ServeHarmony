@@ -48,15 +48,7 @@ app.get('/restaurantPage', authMiddleware.isAuth,appController.restaurantPage_ge
 
 app.get('/cafePage',authMiddleware.isAuth,appController.cafePage_get);
 
-app.get('/reservedTables', async (req, res) => {
-  try {
-      const reservations = await Reservation.find({}).sort({ date: -1 });
-      res.render('reservedTables', { reservations }); 
-  } catch (error) {
-      console.error('Failed to fetch reservations:', error);
-      res.status(500).send('Unable to retrieve reservation data.');
-  }
-});
+app.get('/reservedTables', appController.tables_get);
 
 app.get('/restaurant/menu/:id',authMiddleware.isAuth,appController.restaurant_get);
 

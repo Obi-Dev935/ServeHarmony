@@ -187,7 +187,6 @@ const receipt_get = (request, response) => {
       return response.status(404).send('Order not found');
     }
     response.render('receipt', { order: data });
-    console.log(data);
   })
   .catch((err) => {
     response.status(500).render('receipt', { order: [] });
@@ -264,7 +263,16 @@ const render_dashboard = async (req, res) => {
   }
 };
 
+const tables_get = async (req, res) => {
+  try {
+    const reservations = await Reservation.find({}).sort({ date: -1 });
+    res.render('reservedTables', { reservations }); 
+  } catch (error) {
+    console.error('Failed to fetch reservations:', error);
+    res.status(500).send('Unable to retrieve reservation data.');
+  }
+};
 module.exports = {login_get, login_post, register_post,render_dashboard,login_dashboard,update_order_status,restaurantDashboard_get,
   userOrders_get,receipt_get,restaurantPage_get,cafePage_get,TableReservation_get,TableReservation_post,restaurant_get,cafe_get,
-  cart_get,cart_post,cartRemove_post,confirmOrder_post,homePage_get};
+  cart_get,cart_post,cartRemove_post,confirmOrder_post,homePage_get,tables_get};
 
